@@ -1,0 +1,19 @@
+.main-color {
+  background-color: black;
+}
+
+.blood-moon-image {
+  width: 100%;
+  background-image: url('../images/blood-moon.jpg');
+  background-size: cover;
+}
+
+.blood-moon-height {
+  height: 100%;
+}
+
+.p-welcome {
+  font-size: 2rem;
+  line-height: 5;
+  text-align: center;
+}
