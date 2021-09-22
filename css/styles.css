@@ -2,6 +2,32 @@
   background-color: black;
 }
 
+/* ------------------------- Header ------------------------- */
+
+.header-background {
+  background-color: gray;
+}
+
+.header-div {
+  display: flex;
+  align-items: baseline;
+  width: 900px;
+  margin: auto;
+}
+
+.header-h1 {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: 20%;
+  margin: 0;
+}
+
+/* ------------------------- Welcome Page ------------------------- */
+
 .blood-moon-image {
   width: 100%;
   background-image: url('../images/blood-moon.jpg');
@@ -12,8 +38,55 @@
   height: 100%;
 }
 
-.p-welcome {
-  font-size: 2rem;
-  line-height: 5;
+.all-welcome-text {
+  margin-top: 165px;
+}
+
+.p-welcome-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  margin: 0;
+  height: 120px;
+}
+
+.get-started-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+.get-started-button-style {
+  background-image: linear-gradient(92.88deg, #ce472c 9.16%, #c92b35 43.89%, #cd1829 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  height: 4rem;
+  padding: 0 1.6rem;
   text-align: center;
+  transition: all 0.5s;
+}
+
+.get-started-button-style:hover {
+  box-shadow: rgb(0, 0, 0) 0 1px 30px;
+  transition-duration: 0.4s;
+}
+
+/* ------------------------- Browsing Page ------------------------- */
+
+.p-testing {
+  margin: 0;
+  color: white;
+}
+
+/* --------------- @media --------------- */
+
+@media (min-width: 768px) {
+  .get-started-button-style {
+    padding: 0 2.6rem;
+  }
 }
