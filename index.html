@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="header-background view">
+  <header class="header-background view hidden">
     <div class="header-div">
       <h1 class="header-h1">Akina MTG</h1>
       <a class="header-a-tag" href="">My Decks</a>
@@ -22,7 +22,7 @@
 
 
 
-      <div class="blood-moon-image blood-moon-height view hidden" data-view="welcome-page">
+      <div class="blood-moon-image view" data-view="welcome-page">
         <div class="row">
           <div class="column-full all-welcome-text">
             <p class="p-welcome-page">
@@ -45,7 +45,7 @@
 
 
 
-      <div class="view" data-view="browsing-page">
+      <div class="view hidden" data-view="browsing-page">
         <div class="row">
           <div class="column-full input-button-style">
             <input
@@ -56,6 +56,13 @@
             id="searchBar">
             <button class="deck-button">Deck</button>
           </div>
+        </div>
+
+
+        <div class="row">
+          <ul id="user-list">
+
+          </ul>
         </div>
       </div>
 
