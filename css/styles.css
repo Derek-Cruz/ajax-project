@@ -116,6 +116,40 @@ li {
   height: 30px;
 }
 
+/* --------------- Testing for render --------------- */
+.testing {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* .testdiv {
+
+} */
+
+.testli {
+  width: 25%;
+  list-style-type: none;
+}
+
+.testh2 {
+  margin: 0 0 5px 31px;
+  color: aliceblue;
+}
+
+.testimg {
+  margin: 0 32px;
+  width: 70%;
+}
+
+.testbutton {
+  background-color: #cd1829;
+}
+
+.buttondiv {
+  text-align: center;
+}
+
 /* --------------- @media --------------- */
 
 @media (min-width: 768px) {
