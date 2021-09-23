@@ -116,37 +116,44 @@ li {
   height: 30px;
 }
 
-/* --------------- Testing for render --------------- */
-.testing {
+/* --------------- Card display --------------- */
+
+.card-display-ul {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
 }
 
-/* .testdiv {
-
-} */
-
-.testli {
+.card-display-li {
+  margin-top: 15px;
   width: 25%;
   list-style-type: none;
 }
 
-.testh2 {
+.card-display-h2 {
+  font-size: 1.3rem;
   margin: 0 0 5px 31px;
   color: aliceblue;
 }
 
-.testimg {
+.card-display-img {
   margin: 0 32px;
   width: 70%;
 }
 
-.testbutton {
-  background-color: #cd1829;
+.card-display-add {
+  cursor: pointer;
+  font-size: 0.8rem;
+  background-color: red;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  height: 22px;
+  width: 50px;
 }
 
-.buttondiv {
+.card-display-button-div {
+  margin-top: 5px;
   text-align: center;
 }
 

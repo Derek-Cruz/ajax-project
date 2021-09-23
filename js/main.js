@@ -2,7 +2,7 @@ const $header = document.querySelector('header');
 const $welcomePage = document.querySelector('div[data-view="welcome-page"]');
 const $browsingPage = document.querySelector('div[data-view="browsing-page"]');
 const $getStartedButton = document.querySelector('.get-started-button-style');
-// const $userList = document.querySelector('#user-list');
+// const $userList = document.querySelector('#card-list');
 
 // function getData() {
 //   const xhr = new XMLHttpRequest();
@@ -31,9 +31,23 @@ $getStartedButton.addEventListener('click', function (event) {
 // function renderCards(card) {
 //   const $li = document.createElement('li');
 //   const $div = document.createElement('div');
+//   const $divTwo = document.createElement('div');
 //   const $h2 = document.createElement('h2');
 //   const $img = document.createElement('img');
 //   const $button = document.createElement('button');
 
-//   $li.setAttribute();
+//   $li.setAttribute('class', 'card-display-li');
+//   $h2.setAttribute('class', 'card-display-h2');
+//   $img.setAttribute('class', 'card-display-img');
+//   $img.setAttribute('src', './images/placeholder.jpg');
+//   $divTwo.setAttribute('class', 'card-display-button-div');
+//   $button.setAttribute('class', 'card-display-add');
+
+//   $li.appendChild($div);
+//   $div.appendChild$($h2);
+//   $div.appendChild($img);
+//   $div.appendChild($divTwo);
+//   $divTwo.appendChild($button);
+
+//   return $li;
 // }
