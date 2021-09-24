@@ -76,13 +76,20 @@ i {
   background-image: linear-gradient(92.88deg, #ce472c 9.16%, #c92b35 43.89%, #cd1829 64.72%);
   border-radius: 8px;
   border-style: none;
+  box-sizing: border-box;
   color: #fff;
   cursor: pointer;
+  flex-shrink: 0;
   font-size: 16px;
+  font-weight: 500;
   height: 4rem;
   padding: 0 1.6rem;
   text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
   transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .get-started-button-style:hover {
@@ -137,9 +144,12 @@ i {
 
 .card-display-h2 {
   width: 125px;
+  height: 24px;
   font-size: 0.6rem;
-  margin: 0 0 5px 0;
+  padding: 0 0 5px 25px;
+  margin: 0;
   color: white;
+  text-decoration: underline;
 }
 
 .card-display-img {
@@ -198,12 +208,13 @@ i {
 }
 
 .deck-preview-h2 {
+  font-size: 1.1rem;
   text-decoration: underline;
   margin: 8px 0;
 }
 
 .deck-preview-p {
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   margin: 0 0 7px;
 }
 
@@ -274,8 +285,9 @@ i {
 
   .card-display-h2 {
     width: 160px;
-    font-size: 1.1rem;
-    margin: 0 0 5px 31px;
+    height: 33px;
+    padding: 0 0 5px 33px;
+    font-size: 0.8rem;
   }
 
   .card-display-add {
@@ -286,5 +298,13 @@ i {
 
   .modal-style {
     width: 700px;
+  }
+
+  .deck-preview-p {
+    font-size: 0.9rem;
+  }
+
+  .deck-preview-h2 {
+    font-size: 1.5rem;
   }
 }
