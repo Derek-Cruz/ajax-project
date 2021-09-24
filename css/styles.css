@@ -2,6 +2,11 @@ li {
   color: #fff;
 }
 
+i {
+  font-size: 20px;
+  color: #fff;
+}
+
 .main-color {
   background-color: black;
 }
@@ -174,9 +179,50 @@ li {
 .modal-style {
   width: 700px;
   height: 500px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
   color: white;
+}
+
+.modal-h1 {
+  font-size: 1.7rem;
+  margin: 5px 0 0 69px;
+}
+
+.selected-card-preview {
+  display: flex;
+  justify-content: space-evenly;
+  color: #fff;
+  margin-bottom: 8px;
+  height: 430px;
+}
+
+.deck-preview-h2 {
+  text-decoration: underline;
+  margin: 8px 0;
+}
+
+.deck-preview-p {
+  font-size: 0.9rem;
+  margin: 0 0 7px;
+}
+
+.modal-save-close {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.save-button {
+  cursor: pointer;
+  font-size: 0.8rem;
+  background-color: red;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  height: 22px;
+  width: 50px;
 }
 
 /* --------------- @media --------------- */
