@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="header-background view hidden">
+  <header class="header-background view">
     <div class="header-div">
       <h1 class="header-h1">Akina MTG</h1>
       <a class="header-a-tag" href="">My Decks</a>
@@ -19,7 +19,7 @@
   </header>
   <main class="main-color">
     <div class="container">
-      <div class="blood-moon-image view" data-view="welcome-page">
+      <div class="blood-moon-image view hidden" data-view="welcome-page">
         <div class="row">
           <div class="column-full all-welcome-text">
             <p class="p-welcome-page">
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="view hidden" data-view="browsing-page">
+      <div class="view" data-view="browsing-page">
         <div class="row">
           <div class="column-full input-button-style">
             <input
@@ -59,6 +59,21 @@
           </div>
         </div>
       </div>
+
+
+      <div>
+        <div class="modal-container view hidden">
+          <div class="modal-style">
+            <p>test test test</p>
+            <div class="modal-save">
+              <i class="column-full fas fa-window-close"></i>
+              <button class="Save-button">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
   </main>
   <script src="js/data.js"></script>

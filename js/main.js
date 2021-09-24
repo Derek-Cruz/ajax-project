@@ -3,6 +3,8 @@ const $welcomePage = document.querySelector('div[data-view="welcome-page"]');
 const $browsingPage = document.querySelector('div[data-view="browsing-page"]');
 const $getStartedButton = document.querySelector('.get-started-button-style');
 const $cardList = document.querySelector('#card-list');
+const $deckButton = document.querySelector('.deck-button');
+const $modalDeckButton = document.querySelector('.modal-container');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -57,3 +59,7 @@ function renderCards(card) {
 
   return $li;
 }
+
+$deckButton.addEventListener('click', function () {
+  $modalDeckButton.classList = 'modal-container view';
+});
