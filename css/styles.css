@@ -131,31 +131,31 @@ i {
 
 .card-display-li {
   margin-top: 15px;
-  width: 25%;
+  width: calc(100% / 3);
   list-style-type: none;
 }
 
 .card-display-h2 {
-  width: 160px;
-  font-size: 1.1rem;
-  margin: 0 0 5px 31px;
-  color: aliceblue;
+  width: 125px;
+  font-size: 0.6rem;
+  margin: 0 0 5px 0;
+  color: white;
 }
 
 .card-display-img {
-  margin: 0 32px;
-  width: 70%;
+  margin: 0 25px;
+  width: 60%;
 }
 
 .card-display-add {
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   background-color: red;
   color: black;
   border: none;
   border-radius: 8px;
-  height: 22px;
-  width: 50px;
+  height: 16px;
+  width: 35px;
 }
 
 .card-display-button-div {
@@ -177,7 +177,7 @@ i {
 }
 
 .modal-style {
-  width: 700px;
+  width: 300px;
   height: 500px;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
@@ -261,5 +261,30 @@ i {
 
   .deck-button {
     width: 8%;
+  }
+
+  .card-display-li {
+    width: 25%;
+  }
+
+  .card-display-img {
+    margin: 0 32px;
+    width: 70%;
+  }
+
+  .card-display-h2 {
+    width: 160px;
+    font-size: 1.1rem;
+    margin: 0 0 5px 31px;
+  }
+
+  .card-display-add {
+    font-size: 0.8rem;
+    height: 22px;
+    width: 50px;
+  }
+
+  .modal-style {
+    width: 700px;
   }
 }
