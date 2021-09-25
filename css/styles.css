@@ -128,6 +128,22 @@ i {
   height: 30px;
 }
 
+.arrow-left-right {
+  justify-content: center;
+}
+
+.fa-long-arrow-alt-left {
+  font-size: 2.2rem;
+  padding-right: 2px;
+  color: aliceblue;
+}
+
+.fa-long-arrow-alt-right {
+  font-size: 2.2rem;
+  padding-left: 2px;
+  color: aliceblue;
+}
+
 /* --------------- Card display --------------- */
 
 .card-display-ul {

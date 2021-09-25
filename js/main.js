@@ -5,11 +5,14 @@ const $getStartedButton = document.querySelector('.get-started-button-style');
 const $cardList = document.querySelector('#card-list');
 const $deckButton = document.querySelector('.deck-button');
 const $modalDeckButton = document.querySelector('.modal-container');
-const $modalDeckButtonClose = document.querySelector('i');
+const $modalDeckButtonClose = document.querySelector('.fa-window-close');
+const $arrowLeft = document.querySelector('.fa-long-arrow-alt-left');
+const $arrowRight = document.querySelector('.fa-long-arrow-alt-right');
 
 function getData() {
   const xhr = new XMLHttpRequest();
-  const url = 'https://api.magicthegathering.io/v1/cards?page=';
+  // added data.page
+  const url = 'https://api.magicthegathering.io/v1/cards?page=' + data.page;
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
@@ -28,6 +31,24 @@ $getStartedButton.addEventListener('click', function (event) {
   $header.classList = 'header-background view';
   $welcomePage.classList = 'blood-moon-image blood-moon-height view hidden';
   $browsingPage.classList = 'view';
+});
+
+$deckButton.addEventListener('click', function () {
+  $modalDeckButton.classList = 'modal-container view';
+});
+
+$modalDeckButtonClose.addEventListener('click', function () {
+  $modalDeckButton.classList = 'modal-container view hidden';
+});
+
+$arrowLeft.addEventListener('click', function () {
+  data.page--;
+  // console.log('arrowleft', data.page);
+});
+
+$arrowRight.addEventListener('click', function () {
+  data.page++;
+  // console.log('arrowleft', data.page);
 });
 
 function renderCards(card) {
@@ -61,11 +82,3 @@ function renderCards(card) {
 
   return $li;
 }
-
-$deckButton.addEventListener('click', function () {
-  $modalDeckButton.classList = 'modal-container view';
-});
-
-$modalDeckButtonClose.addEventListener('click', function () {
-  $modalDeckButton.classList = 'modal-container view hidden';
-});
