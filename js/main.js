@@ -9,7 +9,8 @@ const $modalDeckButtonClose = document.querySelector('i');
 
 function getData() {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.magicthegathering.io/v1/cards');
+  const url = 'https://api.magicthegathering.io/v1/cards?page=';
+  xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     // console.log('results:', xhr.response);
