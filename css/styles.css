@@ -26,12 +26,12 @@ i {
 }
 
 .header-h1 {
+  font-family: 'Crimson Text', sans-serif;
   display: flex;
   align-items: flex-end;
   height: 50px;
   color: white;
   font-size: 2rem;
-  font-weight: 400;
   width: 50%;
   margin: 0;
 }
@@ -60,8 +60,10 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Permanent Marker', sans-serif;
   font-size: 2.5rem;
-  color: white;
+  color: black;
+  text-shadow: 0 0 20px black;
   margin: 0;
   height: 80px;
 }
@@ -77,13 +79,14 @@ i {
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
-  color: #fff;
+  color: black;
   cursor: pointer;
   flex-shrink: 0;
-  font-size: 16px;
+  font-size: 0.9rem;
+  font-family: 'Permanent Marker', sans-serif;
   font-weight: 500;
-  height: 4rem;
-  padding: 0 1.6rem;
+  height: 2.9rem;
+  padding: 0 1.2rem;
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
   transition: all 0.5s;
@@ -211,6 +214,7 @@ i {
 }
 
 .modal-h1 {
+  font-family: 'Crimson Text', sans-serif;
   font-size: 1.7rem;
   margin: 5px 0 0 69px;
 }
@@ -224,6 +228,7 @@ i {
 }
 
 .deck-preview-h2 {
+  font-family: 'Crimson Text', sans-serif;
   font-size: 1.1rem;
   text-decoration: underline;
   margin: 8px 0;
@@ -279,7 +284,9 @@ i {
   }
 
   .get-started-button-style {
-    padding: 0 2.6rem;
+    font-size: 1.3rem;
+    height: 4rem;
+    padding: 0 1.7rem;
   }
 
   .input-button-style {

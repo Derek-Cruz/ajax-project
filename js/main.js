@@ -48,7 +48,8 @@ $arrowLeft.addEventListener('click', function () {
 
 $arrowRight.addEventListener('click', function () {
   data.page++;
-  // console.log('arrowleft', data.page);
+  renderCards(data.page);
+  // console.log('arrowRight', data.page);
 });
 
 function renderCards(card) {
