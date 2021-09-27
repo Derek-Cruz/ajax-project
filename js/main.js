@@ -28,28 +28,27 @@ function getData() {
 getData();
 
 $getStartedButton.addEventListener('click', function (event) {
-  $header.classList = 'header-background view';
-  $welcomePage.classList = 'blood-moon-image blood-moon-height view hidden';
-  $browsingPage.classList = 'view';
+  $header.classList.remove('hidden');
+  $welcomePage.classList.add('hidden');
+  $browsingPage.classList.remove('hidden');
 });
 
 $deckButton.addEventListener('click', function () {
-  $modalDeckButton.classList = 'modal-container view';
+  $modalDeckButton.classList.remove('hidden');
 });
 
 $modalDeckButtonClose.addEventListener('click', function () {
-  $modalDeckButton.classList = 'modal-container view hidden';
+  $modalDeckButton.classList.add('hidden');
 });
 
 $arrowLeft.addEventListener('click', function () {
   data.page--;
-  // console.log('arrowleft', data.page);
+  getData();
 });
 
 $arrowRight.addEventListener('click', function () {
   data.page++;
-  renderCards(data.page);
-  // console.log('arrowRight', data.page);
+  getData();
 });
 
 function renderCards(card) {
