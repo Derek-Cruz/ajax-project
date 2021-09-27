@@ -32,12 +32,13 @@ i {
   height: 50px;
   color: white;
   font-size: 2rem;
-  width: 50%;
+  width: 48%;
   margin: 0;
 }
 
 .header-a-tag {
   text-decoration: none;
+  font-family: 'Crimson Text', sans-serif;
   width: 77px;
   color: white;
   font-size: 0.9rem;
@@ -235,8 +236,9 @@ i {
 }
 
 .deck-preview-p {
-  font-size: 0.6rem;
-  margin: 0 0 7px;
+  font-size: 0.7rem;
+  margin: 0 0 11px;
+  padding: 0 1px;
 }
 
 .modal-save-close {
@@ -257,7 +259,18 @@ i {
   width: 50px;
 }
 
-/* --------------- @media --------------- */
+/* ------------------------- My Decks Page ------------------------- */
+
+.my-decks-h2 {
+  color: white;
+  font-family: 'Crimson Text', sans-serif;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  margin: 12px 0;
+  padding-left: 3px;
+}
+
+/* ------------------------- @media ------------------------- */
 
 @media (min-width: 768px) {
   .header-h1 {
@@ -329,5 +342,11 @@ i {
 
   .deck-preview-h2 {
     font-size: 1.5rem;
+  }
+
+  .my-decks-h2 {
+    font-size: 2.1rem;
+    margin: 15px 0;
+    padding-left: 0;
   }
 }

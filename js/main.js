@@ -1,6 +1,7 @@
 const $header = document.querySelector('header');
 const $welcomePage = document.querySelector('div[data-view="welcome-page"]');
 const $browsingPage = document.querySelector('div[data-view="browsing-page"]');
+const $myDecksPage = document.querySelector('div[data-view="my-decks-page"]');
 const $getStartedButton = document.querySelector('.get-started-button-style');
 const $cardList = document.querySelector('#card-list');
 const $deckButton = document.querySelector('.deck-button');
@@ -8,6 +9,8 @@ const $modalDeckButton = document.querySelector('.modal-container');
 const $modalDeckButtonClose = document.querySelector('.fa-window-close');
 const $arrowLeft = document.querySelector('.fa-long-arrow-alt-left');
 const $arrowRight = document.querySelector('.fa-long-arrow-alt-right');
+const $aTagMyDecks = document.querySelector('.a-my-decks');
+const $aTagMakeDeck = document.querySelector('.a-make-deck');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -49,6 +52,20 @@ $arrowLeft.addEventListener('click', function () {
 $arrowRight.addEventListener('click', function () {
   data.page++;
   getData();
+});
+
+$aTagMyDecks.addEventListener('click', function () {
+  $header.classList.remove('hidden');
+  $myDecksPage.classList.remove('hidden');
+  $browsingPage.classList.add('hidden');
+  $welcomePage.classList.add('hidden');
+});
+
+$aTagMakeDeck.addEventListener('click', function () {
+  $header.classList.remove('hidden');
+  $myDecksPage.classList.add('hidden');
+  $welcomePage.classList.add('hidden');
+  $browsingPage.classList.remove('hidden');
 });
 
 function renderCards(card) {
