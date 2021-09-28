@@ -45,13 +45,17 @@ $modalDeckButtonClose.addEventListener('click', function () {
 });
 
 $arrowLeft.addEventListener('click', function () {
+  $cardList.innerHTML = '';
   data.page--;
+  scroll({ top: 0, behavior: 'instant' });
   getData();
 });
 
 $arrowRight.addEventListener('click', function () {
+  $cardList.innerHTML = '';
   data.page++;
   getData();
+  scroll({ top: 0, behavior: 'instant' });
 });
 
 $aTagMyDecks.addEventListener('click', function () {
