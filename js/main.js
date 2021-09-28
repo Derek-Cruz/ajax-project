@@ -54,8 +54,8 @@ $arrowLeft.addEventListener('click', function () {
 $arrowRight.addEventListener('click', function () {
   $cardList.innerHTML = '';
   data.page++;
-  getData();
   scroll({ top: 0, behavior: 'instant' });
+  getData();
 });
 
 $aTagMyDecks.addEventListener('click', function () {
