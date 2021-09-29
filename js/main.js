@@ -101,3 +101,14 @@ function renderCards(card) {
 
   return $li;
 }
+
+// testing the searchBar function
+
+const $searchBar = document.querySelector('#searchBar');
+
+$searchBar.addEventListener('keydown', function (event) {
+  if ($searchBar.value) {
+    var cardSearch = $searchBar.value.toLowerCase();
+    getData(cardSearch);
+  }
+});
