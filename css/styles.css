@@ -166,6 +166,7 @@ i {
   width: 125px;
   height: 24px;
   font-size: 0.6rem;
+  font-family: 'Crimson Text', sans-serif;
   padding: 0 0 5px 25px;
   margin: 0;
   color: white;
@@ -323,7 +324,7 @@ i {
     width: 160px;
     height: 33px;
     padding: 0 0 5px 33px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .card-display-add {

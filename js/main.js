@@ -14,12 +14,10 @@ const $aTagMakeDeck = document.querySelector('.a-make-deck');
 
 function getData() {
   const xhr = new XMLHttpRequest();
-  // added data.page
   const url = 'https://api.magicthegathering.io/v1/cards?page=' + data.page;
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // console.log('results:', xhr.response);
     for (var i = 0; i < xhr.response.cards.length; i++) {
       var $cards = renderCards(xhr.response.cards[i]);
       $cardList.appendChild($cards);
