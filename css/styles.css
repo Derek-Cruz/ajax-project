@@ -7,6 +7,11 @@ i {
   color: #fff;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px #1d1d1d inset;
+  -webkit-text-fill-color: #fff;
+}
+
 .main-color {
   background-color: black;
 }

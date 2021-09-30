@@ -11,6 +11,8 @@ const $arrowLeft = document.querySelector('.fa-long-arrow-alt-left');
 const $arrowRight = document.querySelector('.fa-long-arrow-alt-right');
 const $aTagMyDecks = document.querySelector('.a-my-decks');
 const $aTagMakeDeck = document.querySelector('.a-make-deck');
+const $searchBar = document.querySelector('#searchBar');
+const $searchButton = document.querySelector('.searchButton');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -102,19 +104,26 @@ function renderCards(card) {
   return $li;
 }
 
-// testing the searchBar function
+$searchBar.addEventListener('keydown', function () {
+  if ($searchBar.value) {
+    $searchBar.value.toLowerCase();
+  }
+});
 
-// const $searchBar = document.querySelector('#searchBar');
-// const $searchButton = document.querySelector('.searchButton');
-
-// $searchBar.addEventListener('keydown', function () {
-//   if ($searchBar.value) {
-//     const cardSearch = $searchBar.value.toLowerCase();
-//     console.log('results', cardSearch);
-//   }
-// });
-
-// $searchButton.addEventListener('click', function () {
-//   $cardList.innerHTML = '';
-//   getData($searchBar.value);
-// });
+$searchButton.addEventListener('click', function () {
+  $cardList.innerHTML = '';
+  const xhr = new XMLHttpRequest();
+  const url = 'https://api.magicthegathering.io/v1/cards?name=' + $searchBar.value;
+  xhr.open('GET', url);
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    for (var i = 0; i < xhr.response.cards.length; i++) {
+      var $cards = renderCards(xhr.response.cards[i]);
+      $cardList.appendChild($cards);
+    }
+  });
+  xhr.send();
+  $searchBar.value = '';
+  $arrowLeft.classList.add('hidden');
+  $arrowRight.classList.add('hidden');
+});
