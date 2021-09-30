@@ -106,9 +106,10 @@ function renderCards(card) {
 
 const $searchBar = document.querySelector('#searchBar');
 
-$searchBar.addEventListener('keydown', function (event) {
+$searchBar.addEventListener('keydown', function () {
   if ($searchBar.value) {
     var cardSearch = $searchBar.value.toLowerCase();
     getData(cardSearch);
+    // console.log('$searchBar.value:', $searchBar.value);
   }
 });
