@@ -104,6 +104,19 @@ function renderCards(card) {
   return $li;
 }
 
+// function decklistModalRender(cards) {
+//   const $div = document.createElement('div');
+//   const $divTwo = document.createElement('div');
+//   const $h2 = document.createElement('h2');
+//   const $p = document.createElement('p');
+
+//   $div.setAttribute('class', 'selected-card-preview');
+
+//   $h2.setAttribute('class', 'deck-preview-h2');
+
+//   $p.setAttribute('class', 'deck-preview-p');
+// }
+
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
     search();
