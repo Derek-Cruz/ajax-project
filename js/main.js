@@ -104,13 +104,18 @@ function renderCards(card) {
   return $li;
 }
 
-$searchBar.addEventListener('keydown', function () {
+$searchBar.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) {
+    search();
+  }
+
   if ($searchBar.value) {
     $searchBar.value.toLowerCase();
   }
 });
 
-$searchButton.addEventListener('click', function () {
+function search(event) {
+  $searchButton.addEventListener('click', search);
   $cardList.innerHTML = '';
   const xhr = new XMLHttpRequest();
   const url = 'https://api.magicthegathering.io/v1/cards?name=' + $searchBar.value;
@@ -126,4 +131,4 @@ $searchButton.addEventListener('click', function () {
   $searchBar.value = '';
   $arrowLeft.classList.add('hidden');
   $arrowRight.classList.add('hidden');
-});
+}
