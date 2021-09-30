@@ -104,12 +104,17 @@ function renderCards(card) {
 
 // testing the searchBar function
 
-const $searchBar = document.querySelector('#searchBar');
+// const $searchBar = document.querySelector('#searchBar');
+// const $searchButton = document.querySelector('.searchButton');
 
-$searchBar.addEventListener('keydown', function () {
-  if ($searchBar.value) {
-    var cardSearch = $searchBar.value.toLowerCase();
-    getData(cardSearch);
-    // console.log('$searchBar.value:', $searchBar.value);
-  }
-});
+// $searchBar.addEventListener('keydown', function () {
+//   if ($searchBar.value) {
+//     const cardSearch = $searchBar.value.toLowerCase();
+//     console.log('results', cardSearch);
+//   }
+// });
+
+// $searchButton.addEventListener('click', function () {
+//   $cardList.innerHTML = '';
+//   getData($searchBar.value);
+// });
