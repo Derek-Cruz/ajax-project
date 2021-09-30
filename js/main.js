@@ -13,6 +13,7 @@ const $aTagMyDecks = document.querySelector('.a-my-decks');
 const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
+// const $selectedCardPreview = document.querySelector('.selected-card-preview');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -104,18 +105,28 @@ function renderCards(card) {
   return $li;
 }
 
-// function decklistModalRender(cards) {
-//   const $div = document.createElement('div');
-//   const $divTwo = document.createElement('div');
-//   const $h2 = document.createElement('h2');
-//   const $p = document.createElement('p');
+function decklistModalRender(cards) {
+  const $div = document.createElement('div');
+  const $h2 = document.createElement('h2');
+  const $p = document.createElement('p');
+  const $h2Two = document.createElement('h2');
+  const $pTwo = document.createElement('p');
 
-//   $div.setAttribute('class', 'selected-card-preview');
+  $h2.setAttribute('class', 'deck-preview-h2');
 
-//   $h2.setAttribute('class', 'deck-preview-h2');
+  $p.setAttribute('class', 'deck-preview-p');
 
-//   $p.setAttribute('class', 'deck-preview-p');
-// }
+  $h2Two.setAttribute('class', 'deck-preview-h2');
+
+  $pTwo.setAttribute('class', 'deck-preview-p');
+
+  $div.appendChild($h2);
+  $div.appendChild($p);
+  $div.appendChild($h2Two);
+  $div.appendChild($pTwo);
+}
+// calling so just i can commit will remove
+decklistModalRender();
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
