@@ -7,6 +7,11 @@ i {
   color: #fff;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px #1d1d1d inset;
+  -webkit-text-fill-color: #fff;
+}
+
 .main-color {
   background-color: black;
 }
@@ -104,22 +109,41 @@ i {
 /* ------------------------- Browsing Page ------------------------- */
 
 .input-button-style {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   margin-top: 10px;
   padding: 0 5px;
 }
 
 .browsing-page-search-bar {
   background-color: #1d1d1d;
-  color: white;
-  border: none;
-  width: 70%;
-  border-radius: 8px;
   height: 30px;
+  width: 55%;
+  border: none;
+  border-right: none;
   padding-left: 10px;
   padding-top: 10px;
+  border-radius: 8px 0 0 8px;
+  color: white;
   font-size: 0.9rem;
+  outline: none;
+}
+
+.searchButton {
+  width: 40px;
+  height: 30px;
+  border: none;
+  background: #1d1d1d;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.searchButton i {
+  color: #fff;
+  font-size: smaller;
 }
 
 .deck-button {
@@ -130,6 +154,9 @@ i {
   border: none;
   border-radius: 8px;
   height: 30px;
+  width: 57px;
+  position: relative;
+  left: 19%;
 }
 
 .arrow-left-right {
@@ -307,8 +334,18 @@ i {
     padding: 0;
   }
 
+  .browsing-page-search-bar {
+    height: 35px;
+  }
+
+  .searchButton {
+    height: 35px;
+  }
+
   .deck-button {
-    width: 8%;
+    width: 85px;
+    height: 35px;
+    left: 31%;
   }
 
   .card-display-li {
