@@ -13,7 +13,6 @@ const $aTagMyDecks = document.querySelector('.a-my-decks');
 const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
-// const $selectedCardPreview = document.querySelector('.selected-card-preview');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -105,28 +104,6 @@ function renderCards(card) {
   return $li;
 }
 
-// function decklistModalRender(cards) {
-//   const $div = document.createElement('div');
-//   const $h2 = document.createElement('h2');
-//   const $p = document.createElement('p');
-//   const $h2Two = document.createElement('h2');
-//   const $pTwo = document.createElement('p');
-//
-//   $h2.setAttribute('class', 'deck-preview-h2');
-//
-//   $p.setAttribute('class', 'deck-preview-p');
-//
-//   $h2Two.setAttribute('class', 'deck-preview-h2');
-//
-//   $pTwo.setAttribute('class', 'deck-preview-p');
-//
-//   $div.appendChild($h2);
-//   $div.appendChild($p);
-//   $div.appendChild($h2Two);
-//   $div.appendChild($pTwo);
-// }
-
-// need to fix search bar, click only work after you push enter for the first time...
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
     if (!$searchBar.value || $searchBar.value === ' ') {
@@ -139,6 +116,8 @@ $searchBar.addEventListener('keydown', function (event) {
     $searchBar.value.toLowerCase();
   }
 });
+
+$searchButton.addEventListener('click', search);
 
 function search(event) {
   $searchButton.addEventListener('click', search);
