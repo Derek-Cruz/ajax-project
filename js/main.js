@@ -83,8 +83,6 @@ function renderCards(card) {
 
   $li.setAttribute('class', 'card-display-li');
   $h2.setAttribute('class', 'card-display-h2');
-  $h2.setAttribute('data-card-name', card.name);
-  $h2.setAttribute('data-card-types', card.types);
   $h2.textContent = card.name;
 
   $img.setAttribute('class', 'card-display-img');
@@ -97,8 +95,16 @@ function renderCards(card) {
   $divTwo.setAttribute('class', 'card-display-button-div');
   $button.setAttribute('class', 'card-display-add');
   $button.textContent = 'Add';
-  $button.addEventListener('click', function () {
-    // console.log('clicked');
+  $button.setAttribute('data-card-name', card.name);
+  $button.setAttribute('data-card-types', card.types);
+
+  $button.addEventListener('click', function (event) {
+    const listObj = {
+      name: event.target.getAttribute('data-card-name'),
+      type: event.target.getAttribute('data-card-types')
+    };
+    testing(listObj);
+    // console.log('data', data);
   });
 
   $li.appendChild($div);
@@ -108,6 +114,25 @@ function renderCards(card) {
   $divTwo.appendChild($button);
 
   return $li;
+}
+
+function testing(test) {
+  // console.log('console.log with parameter', test);
+  if (test === 'Creature') {
+    data.list.creatures.push(test);
+  } else if (test === 'Land') {
+    data.list.land.push(test);
+  } else if (test === 'Artifact') {
+    data.list.artifact.push(test);
+  } else if (test === 'Enchantment') {
+    data.list.enchantment.push(test);
+  } else if (test === 'Planeswalker') {
+    data.list.planeswalker.push(test);
+  } else if (test === 'Spells') {
+    data.list.spells.push(test);
+  } else if (test === 'Sideboard') {
+    data.list.sideboard.push(test);
+  }
 }
 
 $searchBar.addEventListener('keydown', function (event) {
