@@ -105,31 +105,33 @@ function renderCards(card) {
   return $li;
 }
 
-function decklistModalRender(cards) {
-  const $div = document.createElement('div');
-  const $h2 = document.createElement('h2');
-  const $p = document.createElement('p');
-  const $h2Two = document.createElement('h2');
-  const $pTwo = document.createElement('p');
+// function decklistModalRender(cards) {
+//   const $div = document.createElement('div');
+//   const $h2 = document.createElement('h2');
+//   const $p = document.createElement('p');
+//   const $h2Two = document.createElement('h2');
+//   const $pTwo = document.createElement('p');
+//
+//   $h2.setAttribute('class', 'deck-preview-h2');
+//
+//   $p.setAttribute('class', 'deck-preview-p');
+//
+//   $h2Two.setAttribute('class', 'deck-preview-h2');
+//
+//   $pTwo.setAttribute('class', 'deck-preview-p');
+//
+//   $div.appendChild($h2);
+//   $div.appendChild($p);
+//   $div.appendChild($h2Two);
+//   $div.appendChild($pTwo);
+// }
 
-  $h2.setAttribute('class', 'deck-preview-h2');
-
-  $p.setAttribute('class', 'deck-preview-p');
-
-  $h2Two.setAttribute('class', 'deck-preview-h2');
-
-  $pTwo.setAttribute('class', 'deck-preview-p');
-
-  $div.appendChild($h2);
-  $div.appendChild($p);
-  $div.appendChild($h2Two);
-  $div.appendChild($pTwo);
-}
-// calling so just i can commit will remove
-decklistModalRender();
-
+// need to fix search bar, click only work after you push enter for the first time...
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
+    if (!$searchBar.value || $searchBar.value === ' ') {
+      return;
+    }
     search();
   }
 
