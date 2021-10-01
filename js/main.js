@@ -20,6 +20,7 @@ function getData() {
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    // console.log('results:', xhr.response);
     for (var i = 0; i < xhr.response.cards.length; i++) {
       var $cards = renderCards(xhr.response.cards[i]);
       $cardList.appendChild($cards);
@@ -82,6 +83,8 @@ function renderCards(card) {
 
   $li.setAttribute('class', 'card-display-li');
   $h2.setAttribute('class', 'card-display-h2');
+  $h2.setAttribute('data-card-name', card.name);
+  $h2.setAttribute('data-card-types', card.types);
   $h2.textContent = card.name;
 
   $img.setAttribute('class', 'card-display-img');
@@ -94,6 +97,9 @@ function renderCards(card) {
   $divTwo.setAttribute('class', 'card-display-button-div');
   $button.setAttribute('class', 'card-display-add');
   $button.textContent = 'Add';
+  $button.addEventListener('click', function () {
+    // console.log('clicked');
+  });
 
   $li.appendChild($div);
   $div.appendChild($h2);
