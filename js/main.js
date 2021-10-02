@@ -103,8 +103,7 @@ function renderCards(card) {
       name: event.target.getAttribute('data-card-name'),
       type: event.target.getAttribute('data-card-types')
     };
-    testing(listObj);
-    // console.log('data', data);
+    typeCompare(listObj);
   });
 
   $li.appendChild($div);
@@ -116,22 +115,21 @@ function renderCards(card) {
   return $li;
 }
 
-function testing(test) {
-  // console.log('console.log with parameter', test);
-  if (test === 'Creature') {
-    data.list.creatures.push(test);
-  } else if (test === 'Land') {
-    data.list.land.push(test);
-  } else if (test === 'Artifact') {
-    data.list.artifact.push(test);
-  } else if (test === 'Enchantment') {
-    data.list.enchantment.push(test);
-  } else if (test === 'Planeswalker') {
-    data.list.planeswalker.push(test);
-  } else if (test === 'Spells') {
-    data.list.spells.push(test);
-  } else if (test === 'Sideboard') {
-    data.list.sideboard.push(test);
+function typeCompare(obj) {
+  if (obj.type === 'Creature') {
+    data.list.creature.push(obj);
+  } else if (obj.type === 'Land') {
+    data.list.land.push(obj);
+  } else if (obj.type === 'Artifact') {
+    data.list.artifact.push(obj);
+  } else if (obj.type === 'Enchantment') {
+    data.list.enchantment.push(obj);
+  } else if (obj.type === 'Planeswalker') {
+    data.list.planeswalker.push(obj);
+  } else if (obj.type === 'Instant' || obj.type === 'Sorcery') {
+    data.list.spells.push(obj);
+  } else if (obj.type === 'Sideboard') {
+    data.list.sideboard.push(obj);
   }
 }
 
