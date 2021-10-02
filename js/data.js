@@ -7,8 +7,7 @@ var data = {
     artifact: [],
     enchantment: [],
     planeswalker: [],
-    spells: [],
-    sideboard: []
+    spells: []
   }
 };
 

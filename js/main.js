@@ -14,6 +14,13 @@ const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
 
+const $creatures = document.querySelector('.creatures');
+const $planeswalkers = document.querySelector('.planeswalkers');
+const $lands = document.querySelector('.lands');
+const $enchantments = document.querySelector('.enchantments');
+const $spells = document.querySelector('.spells');
+const $artifacts = document.querySelector('.artifacts');
+
 function getData() {
   const xhr = new XMLHttpRequest();
   const url = 'https://api.magicthegathering.io/v1/cards?page=' + data.page;
@@ -104,6 +111,11 @@ function renderCards(card) {
       type: event.target.getAttribute('data-card-types')
     };
     typeCompare(listObj);
+
+    // testing
+    renderToModal(listObj);
+    // testing
+
   });
 
   $li.appendChild($div);
@@ -128,8 +140,6 @@ function typeCompare(obj) {
     data.list.planeswalker.push(obj);
   } else if (obj.type === 'Instant' || obj.type === 'Sorcery') {
     data.list.spells.push(obj);
-  } else if (obj.type === 'Sideboard') {
-    data.list.sideboard.push(obj);
   }
 }
 
@@ -165,4 +175,25 @@ function search(event) {
   $searchBar.value = '';
   $arrowLeft.classList.add('hidden');
   $arrowRight.classList.add('hidden');
+}
+
+function renderToModal(card) {
+  let $p = document.createAttribute('p');
+
+  for (let i = 0; i < data.list.length; i++) {
+    $p = data.list.length[i];
+    if ($p === 'Creature') {
+      $creatures.appendChild($p);
+    } else if (card.list === 'Land') {
+      $lands.appendChild($p);
+    } else if (card.list === 'Artifact') {
+      $artifacts.appendChild($p);
+    } else if (card.list === 'Enchantment') {
+      $enchantments.appendChild($p);
+    } else if (card.list === 'Planeswalker') {
+      $planeswalkers.appendChild($p);
+    } else if (card.list === 'Instant' || card.list === 'Sorcery') {
+      $spells.appendChild($p);
+    }
+  }
 }

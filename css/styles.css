@@ -245,7 +245,9 @@ input:-webkit-autofill {
 .modal-h1 {
   font-family: 'Crimson Text', sans-serif;
   font-size: 1.7rem;
-  margin: 5px 0 0 69px;
+  margin: 5px 0 0 0;
+  text-align: center;
+  text-decoration: 2px underline;
 }
 
 .selected-card-preview {
@@ -253,7 +255,7 @@ input:-webkit-autofill {
   justify-content: space-evenly;
   color: #fff;
   margin-bottom: 8px;
-  height: 430px;
+  height: 410px;
   overflow-y: auto;
 }
 
@@ -390,6 +392,10 @@ input:-webkit-autofill {
 
   .modal-style {
     width: 700px;
+  }
+
+  .modal-h1 {
+    font-size: 3rem;
   }
 
   .deck-preview-p {
