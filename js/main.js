@@ -179,6 +179,7 @@ function search(event) {
 
 function renderToModal(card) {
   let $p = document.createAttribute('p');
+  $p.setAttribute('class', 'deck-preview-p');
 
   for (let i = 0; i < data.list.length; i++) {
     $p = data.list.length[i];
