@@ -318,6 +318,30 @@ input:-webkit-autofill {
   padding-left: 3px;
 }
 
+/* ------------------------- Added to deck modal ------------------------- */
+.added-modal-container {
+  color: #fff;
+  position: fixed;
+  right: 88px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.added-to-deck-modal {
+  width: 160px;
+  height: 55px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-text {
+  text-align: center;
+  padding: 15px 0 0 0;
+  font-size: 1.4rem;
+}
+
 /* ------------------------- @media ------------------------- */
 
 @media (min-width: 768px) {
