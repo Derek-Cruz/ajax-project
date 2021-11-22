@@ -14,12 +14,12 @@ const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
 
-// const $creatures = document.querySelector('.creatures');
-// const $planeswalkers = document.querySelector('.planeswalkers');
-// const $lands = document.querySelector('.lands');
-// const $enchantments = document.querySelector('.enchantments');
-// const $spells = document.querySelector('.spells');
-// const $artifacts = document.querySelector('.artifacts');
+const $creatures = document.querySelector('.creatures');
+const $planeswalkers = document.querySelector('.planeswalkers');
+const $lands = document.querySelector('.lands');
+const $enchantments = document.querySelector('.enchantments');
+const $spells = document.querySelector('.spells');
+const $artifacts = document.querySelector('.artifacts');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -113,7 +113,7 @@ function renderCards(card) {
     typeCompare(listObj);
 
     // testing
-    // renderToModal(listObj);
+    renderToModal(listObj);
     // testing
 
   });
@@ -176,24 +176,24 @@ function search(event) {
   $arrowRight.classList.add('hidden');
 }
 
-// function renderToModal(card) {
-//   let $p = document.createAttribute('p');
-//   $p.setAttribute('class', 'deck-preview-p');
-//
-//   for (let i = 0; i < data.list.length; i++) {
-//     $p = data.list[i];
-//     if ($p === 'Creature') {
-//       $creatures.appendChild($p);
-//     } else if ($p === 'Land') {
-//       $lands.appendChild($p);
-//     } else if ($p === 'Artifact') {
-//       $artifacts.appendChild($p);
-//     } else if ($p === 'Enchantment') {
-//       $enchantments.appendChild($p);
-//     } else if ($p === 'Planeswalker') {
-//       $planeswalkers.appendChild($p);
-//     } else if ($p === 'Instant' || $p === 'Sorcery') {
-//       $spells.appendChild($p);
-//     }
-//   }
-// }
+function renderToModal(card) {
+  let $p = document.createAttribute('p');
+  $p.setAttribute('class', 'deck-preview-p');
+
+  for (let i = 0; i < data.list.length; i++) {
+    $p = data.list[i];
+    if ($p === 'Creature') {
+      $creatures.appendChild($p);
+    } else if ($p === 'Land') {
+      $lands.appendChild($p);
+    } else if ($p === 'Artifact') {
+      $artifacts.appendChild($p);
+    } else if ($p === 'Enchantment') {
+      $enchantments.appendChild($p);
+    } else if ($p === 'Planeswalker') {
+      $planeswalkers.appendChild($p);
+    } else if ($p === 'Instant' || $p === 'Sorcery') {
+      $spells.appendChild($p);
+    }
+  }
+}
