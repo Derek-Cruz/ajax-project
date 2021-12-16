@@ -80,6 +80,8 @@ $aTagMakeDeck.addEventListener('click', function () {
   $browsingPage.classList.remove('hidden');
 });
 
+// ------------------------------------------------------RENDER CARDS------------------------------------------------------
+
 function renderCards(card) {
   const $li = document.createElement('li');
   const $div = document.createElement('div');
@@ -106,15 +108,13 @@ function renderCards(card) {
   $button.setAttribute('data-card-types', card.types);
 
   $button.addEventListener('click', function (event) {
+    // console.log('data:', data.list);
     const listObj = {
       name: event.target.getAttribute('data-card-name'),
       type: event.target.getAttribute('data-card-types')
     };
     typeCompare(listObj);
-
-    // testing
-    renderToModal(listObj);
-    // testing
+    renderToModal(card);
 
   });
 
@@ -142,6 +142,37 @@ function typeCompare(obj) {
     data.list.spells.push(obj);
   }
 }
+
+// ------------------------------------------------------CARDS IN MODAL------------------------------------------------------
+
+function renderToModal(card) {
+  // console.log(card);
+  const $div = document.createElement('div');
+  let $p = document.createAttribute('p');
+
+  for (let i = 0; i < data.list.length; i++) {
+    $p = data.list[i];
+    if ($p === 'Creature') {
+      $creatures.push($p);
+    } else if ($p === 'Land') {
+      $lands.push($p);
+    } else if ($p === 'Artifact') {
+      $artifacts.push($p);
+    } else if ($p === 'Enchantment') {
+      $enchantments.push($p);
+    } else if ($p === 'Planeswalker') {
+      $planeswalkers.push($p);
+    } else if ($p === 'Instant' || $p === 'Sorcery') {
+      $spells.push($p);
+    }
+  }
+
+  $div.appendChild($p);
+
+  return $div;
+}
+
+// ------------------------------------------------------SEARCH------------------------------------------------------
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
@@ -174,26 +205,4 @@ function search(event) {
   $searchBar.value = '';
   $arrowLeft.classList.add('hidden');
   $arrowRight.classList.add('hidden');
-}
-
-function renderToModal(card) {
-  let $p = document.createAttribute('p');
-  $p.setAttribute('class', 'deck-preview-p');
-
-  for (let i = 0; i < data.list.length; i++) {
-    $p = data.list[i];
-    if ($p === 'Creature') {
-      $creatures.appendChild($p);
-    } else if ($p === 'Land') {
-      $lands.appendChild($p);
-    } else if ($p === 'Artifact') {
-      $artifacts.appendChild($p);
-    } else if ($p === 'Enchantment') {
-      $enchantments.appendChild($p);
-    } else if ($p === 'Planeswalker') {
-      $planeswalkers.appendChild($p);
-    } else if ($p === 'Instant' || $p === 'Sorcery') {
-      $spells.appendChild($p);
-    }
-  }
 }

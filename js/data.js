@@ -10,10 +10,3 @@ var data = {
     spells: []
   }
 };
-
-// var cardData = [
-//   {
-//     name: 'https://api.magicthegathering.io/v1/cards?name',
-//     types: 'https://api.magicthegathering.io/v1/types'
-//   }
-// ];
