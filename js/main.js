@@ -114,7 +114,7 @@ function renderCards(card) {
       type: event.target.getAttribute('data-card-types')
     };
     typeCompare(listObj);
-    renderToModal(card);
+    renderToModal(listObj);
 
   });
 
@@ -147,29 +147,24 @@ function typeCompare(obj) {
 
 function renderToModal(card) {
   // console.log(card);
-  const $div = document.createElement('div');
   let $p = document.createAttribute('p');
 
   for (let i = 0; i < data.list.length; i++) {
     $p = data.list[i];
     if ($p === 'Creature') {
-      $creatures.push($p);
+      $creatures.appendChild($p);
     } else if ($p === 'Land') {
-      $lands.push($p);
+      $lands.appendChild($p);
     } else if ($p === 'Artifact') {
-      $artifacts.push($p);
+      $artifacts.appendChild($p);
     } else if ($p === 'Enchantment') {
-      $enchantments.push($p);
+      $enchantments.appendChild($p);
     } else if ($p === 'Planeswalker') {
-      $planeswalkers.push($p);
+      $planeswalkers.appendChild($p);
     } else if ($p === 'Instant' || $p === 'Sorcery') {
-      $spells.push($p);
+      $spells.appendChild($p);
     }
   }
-
-  $div.appendChild($p);
-
-  return $div;
 }
 
 // ------------------------------------------------------SEARCH------------------------------------------------------
