@@ -14,13 +14,6 @@ const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
 
-const $creatures = document.querySelector('.creatures');
-const $planeswalkers = document.querySelector('.planeswalkers');
-const $lands = document.querySelector('.lands');
-const $enchantments = document.querySelector('.enchantments');
-const $spells = document.querySelector('.spells');
-const $artifacts = document.querySelector('.artifacts');
-
 function getData() {
   const xhr = new XMLHttpRequest();
   const url = 'https://api.magicthegathering.io/v1/cards?page=' + data.page;
@@ -145,25 +138,52 @@ function typeCompare(obj) {
 
 // ------------------------------------------------------CARDS IN MODAL------------------------------------------------------
 
-function renderToModal(card) {
-  // console.log(card);
-  let $p = document.createAttribute('p');
+const $creatures = document.querySelector('.creatures-div');
+const $planeswalkers = document.querySelector('.planeswalkers-div');
+const $lands = document.querySelector('.lands-div');
+const $enchantments = document.querySelector('.enchantments-div');
+const $spells = document.querySelector('.spells-div');
+const $artifacts = document.querySelector('.artifacts-div');
 
-  for (let i = 0; i < data.list.length; i++) {
-    $p = data.list[i];
-    if ($p === 'Creature') {
-      $creatures.appendChild($p);
-    } else if ($p === 'Land') {
-      $lands.appendChild($p);
-    } else if ($p === 'Artifact') {
-      $artifacts.appendChild($p);
-    } else if ($p === 'Enchantment') {
-      $enchantments.appendChild($p);
-    } else if ($p === 'Planeswalker') {
-      $planeswalkers.appendChild($p);
-    } else if ($p === 'Instant' || $p === 'Sorcery') {
-      $spells.appendChild($p);
-    }
+function renderToModal(card) {
+  const $div = document.createElement('div');
+  const $p = document.createElement('p');
+
+  if (card.type === 'Creature') {
+    $div.setAttribute('class', 'creatures');
+    $p.textContent = card.name;
+    $div.append($p);
+    $creatures.append($div);
+
+  } else if (card.type === 'Land') {
+    $div.setAttribute('class', 'lands');
+    $p.textContent = card.name;
+    $div.append($p);
+    $lands.append($div);
+
+  } else if (card.type === 'Artifact') {
+    $div.setAttribute('class', 'artifacts');
+    $p.textContent = card.name;
+    $div.append($p);
+    $artifacts.append($div);
+
+  } else if (card.type === 'Enchantment') {
+    $div.setAttribute('class', 'enchantments');
+    $p.textContent = card.name;
+    $div.append($p);
+    $enchantments.append($div);
+
+  } else if (card.type === 'Planeswalker') {
+    $div.setAttribute('class', 'planeswalkers');
+    $p.textContent = card.name;
+    $div.append($p);
+    $planeswalkers.append($div);
+
+  } else if (card.type === 'Instant' || card.type === 'Sorcery') {
+    $div.setAttribute('class', 'spells');
+    $p.textContent = card.name;
+    $div.append($p);
+    $spells.append($div);
   }
 }
 
