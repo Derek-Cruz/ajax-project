@@ -13,6 +13,18 @@ const $aTagMyDecks = document.querySelector('.a-my-decks');
 const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
+const $creatures = document.querySelector('.creatures-card-holder');
+const $planeswalkers = document.querySelector('.planeswalkers-card-holder');
+const $lands = document.querySelector('.lands-card-holder');
+const $enchantments = document.querySelector('.enchantments-card-holder');
+const $spells = document.querySelector('.spells-card-holder');
+const $artifacts = document.querySelector('.artifacts-card-holder');
+const $creaturesDiv = document.querySelector('.creatures-div');
+const $planeswalkersDiv = document.querySelector('.planeswalkers-div');
+const $landsDiv = document.querySelector('.lands-div');
+const $enchantmentsDiv = document.querySelector('.enchantments-div');
+const $spellsDiv = document.querySelector('.spells-div');
+const $artifactsDiv = document.querySelector('.artifacts-div');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -138,49 +150,54 @@ function typeCompare(obj) {
 
 // ------------------------------------------------------CARDS IN MODAL------------------------------------------------------
 
-const $creatures = document.querySelector('.creatures-div');
-const $planeswalkers = document.querySelector('.planeswalkers-div');
-const $lands = document.querySelector('.lands-div');
-const $enchantments = document.querySelector('.enchantments-div');
-const $spells = document.querySelector('.spells-div');
-const $artifacts = document.querySelector('.artifacts-div');
-
 function renderToModal(card) {
   const $div = document.createElement('div');
   const $p = document.createElement('p');
 
   if (card.type === 'Creature') {
+    $creaturesDiv.classList.remove('hidden');
     $div.setAttribute('class', 'creatures');
+    $p.setAttribute('class', 'p-modal-listing');
     $p.textContent = card.name;
     $div.append($p);
     $creatures.append($div);
 
   } else if (card.type === 'Land') {
+    $landsDiv.classList.remove('hidden');
     $div.setAttribute('class', 'lands');
+    $p.setAttribute('class', 'p-modal-listing');
     $p.textContent = card.name;
     $div.append($p);
     $lands.append($div);
 
   } else if (card.type === 'Artifact') {
+    $artifactsDiv.classList.remove('hidden');
     $div.setAttribute('class', 'artifacts');
+    $p.setAttribute('class', 'p-modal-listing');
     $p.textContent = card.name;
     $div.append($p);
     $artifacts.append($div);
 
   } else if (card.type === 'Enchantment') {
+    $enchantmentsDiv.classList.remove('hidden');
     $div.setAttribute('class', 'enchantments');
+    $p.setAttribute('class', 'p-modal-listing');
     $p.textContent = card.name;
     $div.append($p);
     $enchantments.append($div);
 
   } else if (card.type === 'Planeswalker') {
+    $planeswalkersDiv.classList.remove('hidden');
     $div.setAttribute('class', 'planeswalkers');
+    $p.setAttribute('class', 'p-modal-listing');
     $p.textContent = card.name;
     $div.append($p);
     $planeswalkers.append($div);
 
   } else if (card.type === 'Instant' || card.type === 'Sorcery') {
+    $spellsDiv.classList.remove('hidden');
     $div.setAttribute('class', 'spells');
+    $p.setAttribute('class', 'p-modal-listing');
     $p.textContent = card.name;
     $div.append($p);
     $spells.append($div);
