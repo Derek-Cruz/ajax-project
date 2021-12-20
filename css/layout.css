@@ -20,10 +20,19 @@ main {
   width: 100%;
 }
 
+.column-half {
+  width: 50%;
+  padding: 0 0.313rem;
+}
+
 /* --------------- @media --------------- */
 
 @media (min-width: 768px) {
   .container {
     max-width: 900px;
+  }
+
+  .column-half {
+    padding: 0 5rem;
   }
 }

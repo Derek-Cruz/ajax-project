@@ -13,6 +13,18 @@ const $aTagMyDecks = document.querySelector('.a-my-decks');
 const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
+const $creatures = document.querySelector('.creatures-card-holder');
+const $planeswalkers = document.querySelector('.planeswalkers-card-holder');
+const $lands = document.querySelector('.lands-card-holder');
+const $enchantments = document.querySelector('.enchantments-card-holder');
+const $spells = document.querySelector('.spells-card-holder');
+const $artifacts = document.querySelector('.artifacts-card-holder');
+const $creaturesDiv = document.querySelector('.creatures-div');
+const $planeswalkersDiv = document.querySelector('.planeswalkers-div');
+const $landsDiv = document.querySelector('.lands-div');
+const $enchantmentsDiv = document.querySelector('.enchantments-div');
+const $spellsDiv = document.querySelector('.spells-div');
+const $artifactsDiv = document.querySelector('.artifacts-div');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -20,6 +32,7 @@ function getData() {
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    // console.log('results:', xhr.response);
     for (var i = 0; i < xhr.response.cards.length; i++) {
       var $cards = renderCards(xhr.response.cards[i]);
       $cardList.appendChild($cards);
@@ -72,6 +85,8 @@ $aTagMakeDeck.addEventListener('click', function () {
   $browsingPage.classList.remove('hidden');
 });
 
+// ------------------------------------------------------RENDER CARDS------------------------------------------------------
+
 function renderCards(card) {
   const $li = document.createElement('li');
   const $div = document.createElement('div');
@@ -94,6 +109,19 @@ function renderCards(card) {
   $divTwo.setAttribute('class', 'card-display-button-div');
   $button.setAttribute('class', 'card-display-add');
   $button.textContent = 'Add';
+  $button.setAttribute('data-card-name', card.name);
+  $button.setAttribute('data-card-types', card.types);
+
+  $button.addEventListener('click', function (event) {
+    // console.log('data:', data.list);
+    const listObj = {
+      name: event.target.getAttribute('data-card-name'),
+      type: event.target.getAttribute('data-card-types')
+    };
+    typeCompare(listObj);
+    renderToModal(listObj);
+
+  });
 
   $li.appendChild($div);
   $div.appendChild($h2);
@@ -104,8 +132,85 @@ function renderCards(card) {
   return $li;
 }
 
+function typeCompare(obj) {
+  if (obj.type === 'Creature') {
+    data.list.creature.push(obj);
+  } else if (obj.type === 'Land') {
+    data.list.land.push(obj);
+  } else if (obj.type === 'Artifact') {
+    data.list.artifact.push(obj);
+  } else if (obj.type === 'Enchantment') {
+    data.list.enchantment.push(obj);
+  } else if (obj.type === 'Planeswalker') {
+    data.list.planeswalker.push(obj);
+  } else if (obj.type === 'Instant' || obj.type === 'Sorcery') {
+    data.list.spells.push(obj);
+  }
+}
+
+// ------------------------------------------------------CARDS IN MODAL------------------------------------------------------
+
+function renderToModal(card) {
+  const $div = document.createElement('div');
+  const $p = document.createElement('p');
+
+  if (card.type === 'Creature') {
+    $creaturesDiv.classList.remove('hidden');
+    $div.setAttribute('class', 'creatures');
+    $p.setAttribute('class', 'p-modal-listing');
+    $p.textContent = card.name;
+    $div.append($p);
+    $creatures.append($div);
+
+  } else if (card.type === 'Land') {
+    $landsDiv.classList.remove('hidden');
+    $div.setAttribute('class', 'lands');
+    $p.setAttribute('class', 'p-modal-listing');
+    $p.textContent = card.name;
+    $div.append($p);
+    $lands.append($div);
+
+  } else if (card.type === 'Artifact') {
+    $artifactsDiv.classList.remove('hidden');
+    $div.setAttribute('class', 'artifacts');
+    $p.setAttribute('class', 'p-modal-listing');
+    $p.textContent = card.name;
+    $div.append($p);
+    $artifacts.append($div);
+
+  } else if (card.type === 'Enchantment') {
+    $enchantmentsDiv.classList.remove('hidden');
+    $div.setAttribute('class', 'enchantments');
+    $p.setAttribute('class', 'p-modal-listing');
+    $p.textContent = card.name;
+    $div.append($p);
+    $enchantments.append($div);
+
+  } else if (card.type === 'Planeswalker') {
+    $planeswalkersDiv.classList.remove('hidden');
+    $div.setAttribute('class', 'planeswalkers');
+    $p.setAttribute('class', 'p-modal-listing');
+    $p.textContent = card.name;
+    $div.append($p);
+    $planeswalkers.append($div);
+
+  } else if (card.type === 'Instant' || card.type === 'Sorcery') {
+    $spellsDiv.classList.remove('hidden');
+    $div.setAttribute('class', 'spells');
+    $p.setAttribute('class', 'p-modal-listing');
+    $p.textContent = card.name;
+    $div.append($p);
+    $spells.append($div);
+  }
+}
+
+// ------------------------------------------------------SEARCH------------------------------------------------------
+
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
+    if (!$searchBar.value || $searchBar.value === ' ') {
+      return;
+    }
     search();
   }
 
@@ -114,8 +219,9 @@ $searchBar.addEventListener('keydown', function (event) {
   }
 });
 
+$searchButton.addEventListener('click', search);
+
 function search(event) {
-  $searchButton.addEventListener('click', search);
   $cardList.innerHTML = '';
   const xhr = new XMLHttpRequest();
   const url = 'https://api.magicthegathering.io/v1/cards?name=' + $searchBar.value;
