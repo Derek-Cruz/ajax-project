@@ -27,7 +27,7 @@ input:-webkit-autofill {
   align-items: baseline;
   width: 100%;
   margin: auto;
-  line-height: 17px;
+  line-height: 1.063rem;
 }
 
 .header-h1 {
@@ -59,7 +59,7 @@ input:-webkit-autofill {
 }
 
 .all-welcome-text {
-  margin-top: 205px;
+  margin-top: 12.813rem;
 }
 
 .p-welcome-page {
@@ -77,7 +77,7 @@ input:-webkit-autofill {
 .get-started-button {
   display: flex;
   justify-content: center;
-  margin-top: 120px;
+  margin-top: 7.5rem;
 }
 
 .get-started-button-style {
@@ -111,8 +111,8 @@ input:-webkit-autofill {
 .input-button-style {
   width: 100%;
   display: flex;
-  margin-top: 10px;
-  padding: 0 5px;
+  margin-top: 0.625rem;
+  padding: 0 0.313rem;
 }
 
 .browsing-page-search-bar {
@@ -121,8 +121,8 @@ input:-webkit-autofill {
   width: 55%;
   border: none;
   border-right: none;
-  padding-left: 10px;
-  padding-top: 10px;
+  padding-left: 0.625rem;
+  padding-top: 0.625rem;
   border-radius: 8px 0 0 8px;
   color: white;
   font-size: 0.9rem;
@@ -165,13 +165,13 @@ input:-webkit-autofill {
 
 .fa-long-arrow-alt-left {
   font-size: 2.2rem;
-  padding-right: 2px;
+  padding-right: 0.125rem;
   color: aliceblue;
 }
 
 .fa-long-arrow-alt-right {
   font-size: 2.2rem;
-  padding-left: 2px;
+  padding-left: 0.125rem;
   color: aliceblue;
 }
 
@@ -184,7 +184,7 @@ input:-webkit-autofill {
 }
 
 .card-display-li {
-  margin-top: 15px;
+  margin-top: 0.938rem;
   width: calc(100% / 3);
   list-style-type: none;
 }
@@ -194,14 +194,14 @@ input:-webkit-autofill {
   height: 24px;
   font-size: 0.6rem;
   font-family: 'Crimson Text', sans-serif;
-  padding: 0 0 5px 25px;
+  padding: 0 0 0.313rem 1.563rem;
   margin: 0;
   color: white;
   text-decoration: underline;
 }
 
 .card-display-img {
-  margin: 0 25px;
+  margin: 0 1.563rem;
   width: 60%;
 }
 
@@ -217,7 +217,7 @@ input:-webkit-autofill {
 }
 
 .card-display-button-div {
-  margin-top: 5px;
+  margin-top: 0.313rem;
   text-align: center;
 }
 
@@ -245,7 +245,7 @@ input:-webkit-autofill {
 .modal-h1 {
   font-family: 'Crimson Text', sans-serif;
   font-size: 1.7rem;
-  margin: 5px 0 0 0;
+  margin: 0.313rem 0 0 0;
   text-align: center;
   text-decoration: 2px underline;
 }
@@ -254,14 +254,14 @@ input:-webkit-autofill {
   display: flex;
   justify-content: space-evenly;
   color: #fff;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   height: 410px;
   overflow-y: auto;
 }
 
 .selected-card-preview::-webkit-scrollbar-track {
   border: 1px solid #000;
-  padding: 2px 0;
+  padding: 0.125rem 0;
   background-color: #404040;
 }
 
@@ -280,14 +280,14 @@ input:-webkit-autofill {
   font-family: 'Crimson Text', sans-serif;
   font-size: 1.1rem;
   text-decoration: underline;
-  margin: 8px 0;
+  margin: 0.5rem 0;
 }
 
 .modal-save-close {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 10px;
+  margin: 0 0.625rem;
 }
 
 .save-button {
@@ -303,7 +303,7 @@ input:-webkit-autofill {
 
 .p-modal-listing {
   font-family: 'Crimson Text', sans-serif;
-  margin: 5px 0;
+  margin: 0.313rem 0;
 }
 
 /* - My Decks Page - */
@@ -313,8 +313,8 @@ input:-webkit-autofill {
   font-family: 'Crimson Text', sans-serif;
   font-size: 1.5rem;
   text-decoration: underline;
-  margin: 12px 0;
-  padding-left: 3px;
+  margin: 0.75rem 0;
+  padding-left: 0.188rem;
 }
 
 /* - Added to deck modal - */
@@ -337,7 +337,7 @@ input:-webkit-autofill {
 
 .modal-text {
   text-align: center;
-  padding: 15px 0 0 0;
+  padding: 0.938rem 0 0 0;
   font-size: 1.4rem;
 }
 
@@ -364,7 +364,7 @@ input:-webkit-autofill {
   }
 
   .all-welcome-text {
-    margin-top: 165px;
+    margin-top: 10.313rem;
   }
 
   .get-started-button-style {
@@ -396,14 +396,14 @@ input:-webkit-autofill {
   }
 
   .card-display-img {
-    margin: 0 32px;
+    margin: 0 2rem;
     width: 70%;
   }
 
   .card-display-h2 {
     width: 160px;
     height: 33px;
-    padding: 0 0 5px 33px;
+    padding: 0 0 0.313rem 2.063rem;
     font-size: 0.9rem;
   }
 
@@ -431,7 +431,7 @@ input:-webkit-autofill {
 
   .my-decks-h2 {
     font-size: 2.1rem;
-    margin: 15px 0;
+    margin: 0.938rem 0;
     padding-left: 0;
   }
 }
