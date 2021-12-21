@@ -238,3 +238,11 @@ function search(event) {
   $arrowLeft.classList.add('hidden');
   $arrowRight.classList.add('hidden');
 }
+
+// document.getElementById('save-list').addEventListener('click', () => {
+//   const testing = Object.entries(data.list);
+
+//   for (const [type, card] of testing) {
+//     console.log('results:', `${type}: ${card}`);
+//   }
+// });

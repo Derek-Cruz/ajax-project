@@ -9,15 +9,16 @@ var data = {
     planeswalker: [],
     spells: []
   },
-  decklist: []
+  decklist: [],
+  decklistId: 1
 };
 
-var $decklist = localStorage.getItem('decklist');
-if ($decklist !== null) {
-  data = JSON.parse($decklist);
+var $userList = localStorage.getItem('userList');
+if ($userList !== null) {
+  data = JSON.parse($userList);
 }
 
 window.addEventListener('beforeunload', function (event) {
   const $data = JSON.stringify(data);
-  localStorage.setItem('decklist', $data);
+  localStorage.setItem('userList', $data);
 });
