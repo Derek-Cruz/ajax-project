@@ -8,5 +8,16 @@ var data = {
     enchantment: [],
     planeswalker: [],
     spells: []
-  }
+  },
+  decklist: []
 };
+
+var $decklist = localStorage.getItem('decklist');
+if ($decklist !== null) {
+  data = JSON.parse($decklist);
+}
+
+window.addEventListener('beforeunload', function (event) {
+  const $data = JSON.stringify(data);
+  localStorage.setItem('decklist', $data);
+});
