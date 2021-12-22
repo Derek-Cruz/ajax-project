@@ -240,9 +240,13 @@ function search(event) {
 }
 
 // document.getElementById('save-list').addEventListener('click', () => {
-//   const testing = Object.entries(data.list);
+//   const newDecklist = Object.entries(data.list);
 
-//   for (const [type, card] of testing) {
-//     console.log('results:', `${type}: ${card}`);
+//   for (const [type, card] of newDecklist) {
+//     data.decklist.newList.push(newDecklist);
+//     console.log('TYPE:', type);
+//     console.log('CARD:', card);
 //   }
+//   data.decklist.decklistId++;
 // });
+// console.log('data:', data);
