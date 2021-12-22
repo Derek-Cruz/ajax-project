@@ -240,13 +240,39 @@ function search(event) {
 }
 
 // document.getElementById('save-list').addEventListener('click', () => {
-//   const newDecklist = Object.entries(data.list);
+//   const $newDecklist = Object.entries(data.list);
 
-//   for (const [type, card] of newDecklist) {
-//     data.decklist.newList.push(newDecklist);
+//   for (const [type, card] of $newDecklist) {
+//     data.decklist.newList.push($newDecklist);
 //     console.log('TYPE:', type);
 //     console.log('CARD:', card);
 //   }
 //   data.decklist.decklistId++;
+//   data.decklist.newList.unshift($newDecklist);
+//   const $newNewList = decklistRender($newDecklist);
+//   $ulList.prepend($newNewList);
 // });
-// console.log('data:', data);
+// // console.log('data:', data);
+
+// function decklistRender(decklist) {
+//   const $li = document.createElement('li');
+//   $li.setAttribute('decklist-id', data.decklist.decklistId);
+//   $li.setAttribute('class', 'row');
+
+//   const $div = document.createElement('div');
+//   $div.setAttribute('class', 'column-full');
+
+//   $li.appendChild($div);
+
+//   return $li;
+// }
+
+// const $ulList = document.querySelector('.ul-decklist');
+
+// document.addEventListener('DOMContentLoaded', function (event) {
+//   for (let i = 0; i < data.decklist.newList.length; i++) {
+//     const $data = decklistRender(data.decklist.newList[i]);
+//     $ulList.appendChild($data);
+//     // console.log('new data:', $data);
+//   }
+// });
