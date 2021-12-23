@@ -9,10 +9,8 @@ var data = {
     planeswalker: [],
     spells: []
   },
-  decklist: {
-    decklistId: 1,
-    newList: []
-  }
+  nextDeckListId: 1,
+  deckLists: {}
 };
 
 var $userList = localStorage.getItem('userList');

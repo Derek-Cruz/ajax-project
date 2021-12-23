@@ -120,7 +120,6 @@ function renderCards(card) {
     };
     typeCompare(listObj);
     renderToModal(listObj);
-
   });
 
   $li.appendChild($div);
@@ -239,40 +238,47 @@ function search(event) {
   $arrowRight.classList.add('hidden');
 }
 
-// document.getElementById('save-list').addEventListener('click', () => {
-//   const $newDecklist = Object.entries(data.list);
+document.getElementById('save-list').addEventListener('click', () => {
+  const $newDecklist = Object.entries(data.list);
+  const newList = {};
 
-//   for (const [type, card] of $newDecklist) {
-//     data.decklist.newList.push($newDecklist);
-//     console.log('TYPE:', type);
-//     console.log('CARD:', card);
-//   }
-//   data.decklist.decklistId++;
-//   data.decklist.newList.unshift($newDecklist);
-//   const $newNewList = decklistRender($newDecklist);
-//   $ulList.prepend($newNewList);
-// });
-// // console.log('data:', data);
+  for (const [type, card] of $newDecklist) {
+    newList[type] = card;
 
-// function decklistRender(decklist) {
-//   const $li = document.createElement('li');
-//   $li.setAttribute('decklist-id', data.decklist.decklistId);
-//   $li.setAttribute('class', 'row');
+    // Reset list for specific type
+    data.list[type] = [];
+  }
 
-//   const $div = document.createElement('div');
-//   $div.setAttribute('class', 'column-full');
+  // Add new list to "deckLists" at the next ID
+  data.deckLists[data.nextDeckListId] = newList;
+  data.nextDeckListId++;
 
-//   $li.appendChild($div);
+  // console.log('Updated Data:', data);
 
-//   return $li;
-// }
+  const $newNewList = decklistRender(newList);
+  $ulList.prepend($newNewList);
 
-// const $ulList = document.querySelector('.ul-decklist');
+  $modalDeckButton.classList.add('hidden');
+});
+
+function decklistRender(decklist) {
+  const $li = document.createElement('li');
+  $li.setAttribute('decklist-id', data.deckLists.nextDeckListId);
+  $li.setAttribute('class', 'row');
+
+  const $div = document.createElement('div');
+  $div.setAttribute('class', 'column-full');
+
+  $li.appendChild($div);
+
+  return $li;
+}
+
+const $ulList = document.querySelector('.ul-decklist');
 
 // document.addEventListener('DOMContentLoaded', function (event) {
-//   for (let i = 0; i < data.decklist.newList.length; i++) {
-//     const $data = decklistRender(data.decklist.newList[i]);
+//   for (let i = 0; i < data.deckLists.newList.length; i++) {
+//     const $data = decklistRender(data.deckLists.newList[i]);
 //     $ulList.appendChild($data);
-//     // console.log('new data:', $data);
 //   }
 // });
