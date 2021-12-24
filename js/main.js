@@ -259,15 +259,28 @@ document.getElementById('save-list').addEventListener('click', () => {
   $ulList.prepend($newNewList);
 
   $modalDeckButton.classList.add('hidden');
+  $creaturesDiv.classList.add('hidden');
+  $creatures.innerHTML = '';
+  $planeswalkersDiv.classList.add('hidden');
+  $planeswalkers.innerHTML = '';
+  $artifactsDiv.classList.add('hidden');
+  $artifacts.innerHTML = '';
+  $enchantmentsDiv.classList.add('hidden');
+  $enchantments.innerHTML = '';
+  $landsDiv.classList.add('hidden');
+  $lands.innerHTML = '';
+  $spellsDiv.classList.add('hidden');
+  $spells.innerHTML = '';
 });
 
 function decklistRender(decklist) {
   const $li = document.createElement('li');
-  $li.setAttribute('decklist-id', data.deckLists.nextDeckListId);
+  $li.setAttribute('decklist-id', data.deckLists);
   $li.setAttribute('class', 'row');
 
   const $div = document.createElement('div');
   $div.setAttribute('class', 'column-full');
+  $div.innerHTML = 'testing';
 
   $li.appendChild($div);
 
@@ -276,9 +289,11 @@ function decklistRender(decklist) {
 
 const $ulList = document.querySelector('.ul-decklist');
 
-// document.addEventListener('DOMContentLoaded', function (event) {
-//   for (let i = 0; i < data.deckLists.newList.length; i++) {
-//     const $data = decklistRender(data.deckLists.newList[i]);
-//     $ulList.appendChild($data);
-//   }
-// });
+document.addEventListener('DOMContentLoaded', function (event) {
+  const $myDecks = Object.entries(data.deckLists);
+  for (const obj of $myDecks) {
+    const $data = decklistRender(obj);
+    $ulList.appendChild($data);
+    // console.log('obj:', obj);
+  }
+});
