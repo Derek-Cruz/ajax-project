@@ -275,12 +275,11 @@ document.getElementById('save-list').addEventListener('click', () => {
 
 function decklistRender(decklist) {
   const $li = document.createElement('li');
-  $li.setAttribute('decklist-id', data.deckLists);
   $li.setAttribute('class', 'row');
 
   const $div = document.createElement('div');
   $div.setAttribute('class', 'column-full');
-  $div.innerHTML = 'testing';
+  $div.innerHTML = data.decklist;
 
   $li.appendChild($div);
 

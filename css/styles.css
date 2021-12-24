@@ -308,6 +308,10 @@ input:-webkit-autofill {
 
 /* - My Decks Page - */
 
+.my-decks-page-style {
+  flex-direction: column;
+}
+
 .my-decks-h2 {
   color: white;
   font-family: 'Crimson Text', sans-serif;
@@ -315,6 +319,10 @@ input:-webkit-autofill {
   text-decoration: underline;
   margin: 0.75rem 0;
   padding-left: 0.188rem;
+}
+
+.ul-decklist {
+  padding-left: 0;
 }
 
 /* - Added to deck modal - */
