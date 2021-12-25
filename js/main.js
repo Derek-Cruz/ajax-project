@@ -279,9 +279,13 @@ function decklistRender(decklist) {
 
   const $div = document.createElement('div');
   $div.setAttribute('class', 'column-full');
-  $div.innerHTML = data.decklist;
+
+  const $divTwo = document.createElement('div');
+  $divTwo.setAttribute('class', 'decklist-style-test');
+  $divTwo.innerHTML = data.decklist;
 
   $li.appendChild($div);
+  $div.appendChild($divTwo);
 
   return $li;
 }

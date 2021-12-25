@@ -325,6 +325,13 @@ input:-webkit-autofill {
   padding-left: 0;
 }
 
+.decklist-style-test {
+  border: solid 1px white;
+  height: 500px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 /* - Added to deck modal - */
 .added-modal-container {
   color: #fff;
