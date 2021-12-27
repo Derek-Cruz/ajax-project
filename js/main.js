@@ -119,7 +119,7 @@ function renderCards(card) {
       type: event.target.getAttribute('data-card-types')
     };
     typeCompare(listObj);
-    renderToModal(listObj);
+    renderList(listObj);
   });
 
   $li.appendChild($div);
@@ -149,7 +149,7 @@ function typeCompare(obj) {
 
 // ------------------------------------------------------CARDS IN MODAL------------------------------------------------------
 
-function renderToModal(card) {
+function renderList(card) {
   const $div = document.createElement('div');
   const $p = document.createElement('p');
 
@@ -242,8 +242,6 @@ document.getElementById('save-list').addEventListener('click', () => {
   const $newDecklist = Object.entries(data.list);
   const newList = {};
 
-  // newList.decklistId = data.nextDeckListId;
-
   for (const [type, card] of $newDecklist) {
     newList[type] = card;
 
@@ -285,9 +283,8 @@ function decklistRender(decklist) {
 
   const $divTwo = document.createElement('div');
   $divTwo.setAttribute('class', 'decklist-style-test');
-  $divTwo.setAttribute('data-deck-id', 'test1');
-  // $divTwo.innerHTML = data.decklist;
-  $divTwo.innerHTML = `${data.deckLists[1].creature}`;
+  // $divTwo.setAttribute('data-deck-id', 'test1');
+  $divTwo.innerHTML = Object.keys(data.deckLists);
 
   $li.appendChild($div);
   $div.appendChild($divTwo);
