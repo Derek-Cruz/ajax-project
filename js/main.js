@@ -273,9 +273,8 @@ document.getElementById('save-list').addEventListener('click', () => {
   $spells.innerHTML = '';
 });
 
-function decklistRender(decklist) {
+function decklistRender(deckLists) {
   const $li = document.createElement('li');
-  // $li.setAttribute('data-deck-id', decklist.decklistId);
   $li.setAttribute('class', 'row');
 
   const $div = document.createElement('div');
@@ -283,8 +282,16 @@ function decklistRender(decklist) {
 
   const $divTwo = document.createElement('div');
   $divTwo.setAttribute('class', 'decklist-style-test');
-  // $divTwo.setAttribute('data-deck-id', 'test1');
-  $divTwo.innerHTML = Object.keys(data.deckLists);
+
+  // const deckIds = Object.keys(data.deckLists);
+
+  // for (let i = 0; i < deckIds.length; i++) {
+  //   const id = deckIds[i];
+  //   console.log('id:', id);
+  //   const $liTwo = document.createElement('li');
+  //   $liTwo.setAttribute('data-deck-id', deckLists.deckListId);
+  //   $divTwo.appendChild($liTwo);
+  // }
 
   $li.appendChild($div);
   $div.appendChild($divTwo);
