@@ -242,6 +242,8 @@ document.getElementById('save-list').addEventListener('click', () => {
   const $newDecklist = Object.entries(data.list);
   const newList = {};
 
+  // newList.decklistId = data.nextDeckListId;
+
   for (const [type, card] of $newDecklist) {
     newList[type] = card;
 
@@ -275,6 +277,7 @@ document.getElementById('save-list').addEventListener('click', () => {
 
 function decklistRender(decklist) {
   const $li = document.createElement('li');
+  // $li.setAttribute('data-deck-id', decklist.decklistId);
   $li.setAttribute('class', 'row');
 
   const $div = document.createElement('div');
@@ -282,7 +285,9 @@ function decklistRender(decklist) {
 
   const $divTwo = document.createElement('div');
   $divTwo.setAttribute('class', 'decklist-style-test');
-  $divTwo.innerHTML = data.decklist;
+  $divTwo.setAttribute('data-deck-id', 'test1');
+  // $divTwo.innerHTML = data.decklist;
+  $divTwo.innerHTML = `${data.deckLists[1].creature}`;
 
   $li.appendChild($div);
   $div.appendChild($divTwo);
