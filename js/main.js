@@ -283,15 +283,20 @@ function decklistRender(deckLists) {
   const $divTwo = document.createElement('div');
   $divTwo.setAttribute('class', 'decklist-style-test');
 
-  // const deckIds = Object.keys(data.deckLists);
+  const deckIds = Object.keys(data.deckLists);
 
-  // for (let i = 0; i < deckIds.length; i++) {
-  //   const id = deckIds[i];
-  //   console.log('id:', id);
-  //   const $liTwo = document.createElement('li');
-  //   $liTwo.setAttribute('data-deck-id', deckLists.deckListId);
-  //   $divTwo.appendChild($liTwo);
-  // }
+  for (let i = 0; i < deckIds.length; i++) {
+    const id = deckIds[i];
+    // console.log('ID:', id);
+    const $liTwo = document.createElement('li');
+    $liTwo.setAttribute('data-deck-id', deckLists.deckListId);
+
+    const testingContent = renderList(deckLists.id);
+    $liTwo.textContent = testingContent;
+    $liTwo.textContent = id;
+    // console.log('RESULTS:', data.deckLists[id]);
+    $divTwo.appendChild($liTwo);
+  }
 
   $li.appendChild($div);
   $div.appendChild($divTwo);
