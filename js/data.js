@@ -10,7 +10,8 @@ var data = {
     spells: []
   },
   nextDeckListId: 1,
-  deckLists: {}
+  deckLists: {},
+  deckName: ''
 };
 
 var $userList = localStorage.getItem('userList');

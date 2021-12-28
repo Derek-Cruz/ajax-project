@@ -25,6 +25,7 @@ const $landsDiv = document.querySelector('.lands-div');
 const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
+// const $input = document.querySelector('#name');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -273,6 +274,24 @@ document.getElementById('save-list').addEventListener('click', () => {
   $spells.innerHTML = '';
 });
 
+// --------------------------------------------------------
+
+// function testingRender(deck) {
+//   const $div = document.createElement('div');
+//   const $p = document.createElement('p');
+
+//   if (deck.type === 'Creature') {
+//     $creaturesDiv.classList.remove('hidden');
+//     $div.setAttribute('class', 'creatures');
+//     $p.setAttribute('class', 'p-modal-listing');
+//     $p.textContent = deck.name;
+//     $div.append($p);
+//     $creatures.append($div);
+//   }
+// }
+
+// --------------------------------------------------------
+
 function decklistRender(deckLists) {
   const $li = document.createElement('li');
   $li.setAttribute('class', 'row');
@@ -280,26 +299,21 @@ function decklistRender(deckLists) {
   const $div = document.createElement('div');
   $div.setAttribute('class', 'column-full');
 
-  const $divTwo = document.createElement('div');
-  $divTwo.setAttribute('class', 'decklist-style-test');
-
   const deckIds = Object.keys(data.deckLists);
-
   for (let i = 0; i < deckIds.length; i++) {
     const id = deckIds[i];
     // console.log('ID:', id);
     const $liTwo = document.createElement('li');
     $liTwo.setAttribute('data-deck-id', deckLists.deckListId);
 
-    const testingContent = renderList(deckLists.id);
-    $liTwo.textContent = testingContent;
+    // const testingContent = renderList(data.deckLists[id]);
     $liTwo.textContent = id;
     // console.log('RESULTS:', data.deckLists[id]);
-    $divTwo.appendChild($liTwo);
+    // console.log('RESULTS:', testingContent);
+    $div.appendChild($liTwo);
   }
 
   $li.appendChild($div);
-  $div.appendChild($divTwo);
 
   return $li;
 }
