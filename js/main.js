@@ -294,7 +294,7 @@ document.getElementById('save-list').addEventListener('click', () => {
 
 function decklistRender(deckLists) {
   const $p = document.createElement('p');
-  data.deckName = $input.name.value;
+  data.deckName = $input.elements.name.value;
 
   const $li = document.createElement('li');
   $li.setAttribute('class', 'row');
@@ -310,11 +310,12 @@ function decklistRender(deckLists) {
     $liTwo.setAttribute('data-deck-id', deckLists.deckListId);
 
     // const testingContent = renderList(data.deckLists[id]);
-    $p.textContent = deckLists.name;
-    // console.log('RESULTS:', data.deckLists[id]);
+    $p.textContent = data.deckName;
+
     // console.log('RESULTS:', testingContent);
     $div.appendChild($liTwo);
     $liTwo.appendChild($p);
+    // console.log('testing:', data.deckName);
   }
 
   $li.appendChild($div);
