@@ -25,7 +25,7 @@ const $landsDiv = document.querySelector('.lands-div');
 const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
-// const $input = document.querySelector('#name');
+const $input = document.querySelector('#name');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -293,6 +293,8 @@ document.getElementById('save-list').addEventListener('click', () => {
 // --------------------------------------------------------
 
 function decklistRender(deckLists) {
+  data.deckName = $input.name.value;
+
   const $li = document.createElement('li');
   $li.setAttribute('class', 'row');
 
