@@ -25,7 +25,6 @@ const $landsDiv = document.querySelector('.lands-div');
 const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
-// const $input = document.querySelector('#name');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -296,8 +295,7 @@ document.getElementById('save-list').addEventListener('click', () => {
 
 // --------------------------------------------------------
 
-function decklistRender(deckLists) {
-  const $p = document.createElement('p');
+function decklistRender(cards) {
   const $li = document.createElement('li');
   $li.setAttribute('class', 'row');
   const $div = document.createElement('div');
@@ -307,13 +305,12 @@ function decklistRender(deckLists) {
     // const id = deckIds[i];
     // console.log('ID:', id);
     const $liTwo = document.createElement('li');
-    $liTwo.setAttribute('data-deck-id', deckLists.deckListId);
+    $liTwo.setAttribute('data-deck-id', cards.deckListId);
 
-    $p.textContent = data.deckName;
+    $liTwo.textContent = cards.deckName;
     // console.log('RESULTS:', testingContent);
     $div.appendChild($liTwo);
-    $liTwo.appendChild($p);
-    // console.log('testing:', data.deckName[id]);
+    // console.log('testing:', cards.deckName);
   }
   $li.appendChild($div);
   return $li;
