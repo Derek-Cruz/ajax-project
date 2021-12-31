@@ -25,6 +25,7 @@ const $landsDiv = document.querySelector('.lands-div');
 const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
+const $ulList = document.querySelector('.ul-decklist');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -257,8 +258,9 @@ document.getElementById('save-list').addEventListener('click', () => {
 
   // console.log('Updated Data:', data);
 
-  const $newNewList = decklistRender(newList);
-  $ulList.prepend($newNewList);
+  $ulList.innerHTML = '';
+  const $lis = decklistRender();
+  $ulList.append($lis);
 
   $modalDeckButton.classList.add('hidden');
   $creaturesDiv.classList.add('hidden');
@@ -295,34 +297,23 @@ document.getElementById('save-list').addEventListener('click', () => {
 
 // --------------------------------------------------------
 
-function decklistRender(cards) {
-  const $li = document.createElement('li');
-  $li.setAttribute('class', 'row');
-  const $div = document.createElement('div');
-  $div.setAttribute('class', 'column-full');
+function decklistRender() {
   const deckIds = Object.keys(data.deckLists);
+  const $listElements = [];
   for (let i = 0; i < deckIds.length; i++) {
-    // const id = deckIds[i];
-    // console.log('ID:', id);
-    const $liTwo = document.createElement('li');
-    $liTwo.setAttribute('data-deck-id', cards.deckListId);
+    const id = deckIds[i];
+    const $li = document.createElement('li');
+    $li.setAttribute('class', 'row testing');
+    $li.setAttribute('data-deck-id', id);
+    $li.textContent = data.deckLists[id].deckName;
 
-    $liTwo.textContent = cards.deckName;
-    // console.log('RESULTS:', testingContent);
-    $div.appendChild($liTwo);
-    // console.log('testing:', cards.deckName);
+    $listElements.push($li);
   }
-  $li.appendChild($div);
-  return $li;
+  return $listElements;
 }
-
-const $ulList = document.querySelector('.ul-decklist');
+// console.log('data.decklist:', data.deckLists);
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  const $myDecks = Object.entries(data.deckLists);
-  for (const obj of $myDecks) {
-    const $data = decklistRender(obj);
-    $ulList.appendChild($data);
-    // console.log('obj:', obj);
-  }
+  const $lis = decklistRender();
+  $ulList.append(...$lis);
 });
