@@ -244,6 +244,7 @@ document.getElementById('save-list').addEventListener('click', () => {
   const newList = {};
 
   newList.deckName = document.getElementById('name').value;
+  document.getElementById('name').value = '';
 
   for (const [type, card] of $newDecklist) {
     newList[type] = card;
@@ -255,8 +256,6 @@ document.getElementById('save-list').addEventListener('click', () => {
   // Add new list to "deckLists" at the next ID
   data.deckLists[data.nextDeckListId] = newList;
   data.nextDeckListId++;
-
-  // console.log('Updated Data:', data);
 
   $ulList.innerHTML = '';
   const $lis = decklistRender();
@@ -275,8 +274,6 @@ document.getElementById('save-list').addEventListener('click', () => {
   $lands.innerHTML = '';
   $spellsDiv.classList.add('hidden');
   $spells.innerHTML = '';
-
-  // console.log('newlist:', newList);
 });
 
 // --------------------------------------------------------
@@ -303,7 +300,7 @@ function decklistRender() {
   for (let i = 0; i < deckIds.length; i++) {
     const id = deckIds[i];
     const $li = document.createElement('li');
-    $li.setAttribute('class', 'row testing');
+    $li.setAttribute('class', 'row decklist-render-li');
     $li.setAttribute('data-deck-id', id);
     $li.textContent = data.deckLists[id].deckName;
 

@@ -16,7 +16,7 @@ input:-webkit-autofill {
   background-color: black;
 }
 
-.testing {
+.decklist-render-li {
   height: 30px;
 }
 
@@ -228,6 +228,7 @@ input:-webkit-autofill {
 /* - Deck Button Modal - */
 
 .modal-input-style {
+  color: white;
   width: 160px;
   height: 25px;
   background-color: #1d1d1d;
