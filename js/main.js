@@ -300,11 +300,21 @@ function decklistRender() {
   for (let i = 0; i < deckIds.length; i++) {
     const id = deckIds[i];
     const $li = document.createElement('li');
+    const $div = document.createElement('div');
+    const $editIcon = document.createElement('i');
+
     $li.setAttribute('class', 'row decklist-render-li');
     $li.setAttribute('data-deck-id', id);
     $li.textContent = data.deckLists[id].deckName;
 
+    $div.setAttribute('class', 'column-full');
+
+    $editIcon.setAttribute('data-entry-id', id);
+    $editIcon.setAttribute('class', 'fas fa-pen');
+
     $listElements.push($li);
+    $li.appendChild($div);
+    $div.appendChild($editIcon);
   }
   return $listElements;
 }
