@@ -259,7 +259,7 @@ document.getElementById('save-list').addEventListener('click', () => {
 
   $ulList.innerHTML = '';
   const $lis = decklistRender();
-  $ulList.append($lis);
+  $ulList.append(...$lis);
 
   $modalDeckButton.classList.add('hidden');
   $creaturesDiv.classList.add('hidden');
