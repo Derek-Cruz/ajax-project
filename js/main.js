@@ -307,8 +307,6 @@ function decklistRender() {
     $li.setAttribute('data-deck-id', id);
     $li.textContent = data.deckLists[id].deckName;
 
-    $div.setAttribute('class', 'column-full');
-
     $editIcon.setAttribute('data-entry-id', id);
     $editIcon.setAttribute('class', 'fas fa-pen');
 
