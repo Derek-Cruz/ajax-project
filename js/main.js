@@ -301,18 +301,19 @@ function decklistRender() {
     const id = deckIds[i];
     const $li = document.createElement('li');
     const $div = document.createElement('div');
-    const $editIcon = document.createElement('i');
+    const $a = document.createElement('a');
 
     $li.setAttribute('class', 'row decklist-render-li');
     $li.setAttribute('data-deck-id', id);
     $li.textContent = data.deckLists[id].deckName;
 
-    $editIcon.setAttribute('data-entry-id', id);
-    $editIcon.setAttribute('class', 'fas fa-pen');
+    $a.setAttribute('data-entry-id', id);
+    $a.setAttribute('class', 'testing-button-design');
+    $a.textContent = 'VIEW';
 
     $listElements.push($li);
     $li.appendChild($div);
-    $div.appendChild($editIcon);
+    $div.appendChild($a);
   }
   return $listElements;
 }

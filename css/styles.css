@@ -20,7 +20,18 @@ input:-webkit-autofill {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   height: 30px;
+}
+
+.testing-button-design {
+  font-size: 0.8rem;
+  padding: 7px 5px 3px 5px;
+  border-radius: 8px;
+  font-family: 'Crimson Text', sans-serif;
+  background-color: red;
+  color: black;
+  cursor: pointer;
 }
 
 /* - Header - */
