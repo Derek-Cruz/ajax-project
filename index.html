@@ -76,16 +76,18 @@
         </div>
       </div>
       <div class="view hidden" data-view="my-decks-page">
-        <div class="row">
+        <div class="row my-decks-page-style">
           <div class="column-full">
             <h2 class="my-decks-h2">My Decks</h2>
           </div>
+          <ul class="ul-decklist"></ul>
         </div>
       </div>
       <div>
         <div class="modal-container view hidden">
           <div class="modal-style">
             <h1 class="modal-h1">Deck Preview</h1>
+            <input class="modal-input-style" type="text" id="name" name="name" placeholder="Deck Name" required>
             <div class="selected-card-preview">
               <div class="column-half">
                 <div class="creatures-div hidden">
@@ -130,7 +132,7 @@
             </div>
             <div class="modal-save-close">
               <i class="fas fa-window-close"></i>
-              <button class="save-button">Save</button>
+              <button id="save-list" class="save-button">Save</button>
             </div>
           </div>
         </div>

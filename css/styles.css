@@ -16,6 +16,25 @@ input:-webkit-autofill {
   background-color: black;
 }
 
+.decklist-render-li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  padding: 0 6px;
+}
+
+.testing-button-design {
+  font-size: 0.8rem;
+  padding: 7px 5px 3px 5px;
+  border-radius: 8px;
+  font-family: 'Crimson Text', sans-serif;
+  background-color: red;
+  color: black;
+  cursor: pointer;
+}
+
 /* - Header - */
 
 .header-background {
@@ -223,6 +242,17 @@ input:-webkit-autofill {
 
 /* - Deck Button Modal - */
 
+.modal-input-style {
+  color: white;
+  width: 160px;
+  height: 25px;
+  background-color: #1d1d1d;
+  border-radius: 8px;
+  margin-left: 5px;
+  border: none;
+  padding: 10px 0 0 10px;
+}
+
 .modal-container {
   position: fixed;
   top: 0;
@@ -251,11 +281,12 @@ input:-webkit-autofill {
 }
 
 .selected-card-preview {
+  font-size: 0.8rem;
   display: flex;
   justify-content: space-evenly;
   color: #fff;
   margin-bottom: 0.5rem;
-  height: 410px;
+  height: 385px;
   overflow-y: auto;
 }
 
@@ -308,6 +339,10 @@ input:-webkit-autofill {
 
 /* - My Decks Page - */
 
+.my-decks-page-style {
+  flex-direction: column;
+}
+
 .my-decks-h2 {
   color: white;
   font-family: 'Crimson Text', sans-serif;
@@ -315,6 +350,11 @@ input:-webkit-autofill {
   text-decoration: underline;
   margin: 0.75rem 0;
   padding-left: 0.188rem;
+}
+
+.ul-decklist {
+  padding-left: 0;
+  font-family: 'Crimson Text', sans-serif;
 }
 
 /* - Added to deck modal - */
@@ -434,5 +474,13 @@ input:-webkit-autofill {
     font-size: 2.1rem;
     margin: 0.938rem 0;
     padding-left: 0;
+  }
+
+  .decklist-render-li {
+    padding: unset;
+  }
+
+  .selected-card-preview {
+    font-size: 1rem;
   }
 }
