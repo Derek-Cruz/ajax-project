@@ -35,6 +35,12 @@ input:-webkit-autofill {
   cursor: pointer;
 }
 
+.testing-deck-div {
+  display: flex;
+  width: 106px;
+  justify-content: space-between;
+}
+
 /* - Header - */
 
 .header-background {
@@ -483,4 +489,5 @@ input:-webkit-autofill {
   .selected-card-preview {
     font-size: 1rem;
   }
+}
 }

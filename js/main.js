@@ -302,10 +302,16 @@ function decklistRender() {
     const $li = document.createElement('li');
     const $div = document.createElement('div');
     const $a = document.createElement('a');
+    const $aTwo = document.createElement('a');
 
     $li.setAttribute('class', 'row decklist-render-li');
     $li.setAttribute('data-deck-id', id);
     $li.textContent = data.deckLists[id].deckName;
+
+    $div.setAttribute('class', 'testing-deck-div');
+
+    $aTwo.setAttribute('class', 'testing-button-design');
+    $aTwo.textContent = 'DELETE';
 
     $a.setAttribute('data-entry-id', id);
     $a.setAttribute('class', 'testing-button-design');
@@ -313,6 +319,7 @@ function decklistRender() {
 
     $listElements.push($li);
     $li.appendChild($div);
+    $div.appendChild($aTwo);
     $div.appendChild($a);
   }
   return $listElements;
