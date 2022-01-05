@@ -310,7 +310,7 @@ function decklistRender() {
 
     $div.setAttribute('class', 'testing-deck-div');
 
-    $aTwo.setAttribute('class', 'testing-button-design');
+    $aTwo.setAttribute('class', 'testing-button-design test-delete');
     $aTwo.textContent = 'DELETE';
 
     $a.setAttribute('data-entry-id', id);
@@ -329,4 +329,20 @@ function decklistRender() {
 document.addEventListener('DOMContentLoaded', function (event) {
   const $lis = decklistRender();
   $ulList.append(...$lis);
+});
+
+// ----------------------- DELETING DECKLIST -----------------------
+const $delete = document.querySelector('.test-delete');
+
+$delete.addEventListener('click', function (event) {
+  for (let i = 0; i < data.newList.length; i++) {
+    if (data.newList.id === data.newList[i].id) {
+      data.newList.splice(i, 1);
+      return;
+    }
+  }
+
+  for (var x = 0; x < data.newList.length; x++) {
+    $ulList.appendChild(decklistRender(data.entries[x]));
+  }
 });
