@@ -26,6 +26,7 @@ const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
 const $ulList = document.querySelector('.ul-decklist');
+// const $delete = document.querySelector('#test');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -310,7 +311,8 @@ function decklistRender() {
 
     $div.setAttribute('class', 'testing-deck-div');
 
-    $aTwo.setAttribute('class', 'testing-button-design test-delete');
+    $aTwo.setAttribute('class', ' testing-button-design ');
+    $aTwo.setAttribute('id', 'test');
     $aTwo.textContent = 'DELETE';
 
     $a.setAttribute('data-entry-id', id);
@@ -332,17 +334,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 // ----------------------- DELETING DECKLIST -----------------------
-const $delete = document.querySelector('.test-delete');
 
-$delete.addEventListener('click', function (event) {
-  for (let i = 0; i < data.newList.length; i++) {
-    if (data.newList.id === data.newList[i].id) {
-      data.newList.splice(i, 1);
-      return;
-    }
-  }
+// $delete.addEventListener('click', function (event) {
+//   for (let i = 0; i < data.newList.length; i++) {
+//     if (data.newList.id === data.newList[i].id) {
+//       data.newList.splice(i, 1);
+//       return;
+//     }
+//   }
 
-  for (var x = 0; x < data.newList.length; x++) {
-    $ulList.appendChild(decklistRender(data.entries[x]));
-  }
-});
+//   for (var x = 0; x < data.newList.length; x++) {
+//     $ulList.appendChild(decklistRender(data.entries[x]));
+//   }
+//   console.log('I WAS CLICKED');
+// });
+
+// console.log('test', typeof $delete);
