@@ -26,7 +26,6 @@ const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
 const $ulList = document.querySelector('.ul-decklist');
-// const $delete = document.querySelector('#test');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -311,9 +310,17 @@ function decklistRender() {
 
     $div.setAttribute('class', 'testing-deck-div');
 
-    $aTwo.setAttribute('class', ' testing-button-design ');
-    $aTwo.setAttribute('id', 'test');
+    $aTwo.setAttribute('class', ' testing-button-design');
     $aTwo.textContent = 'DELETE';
+    $aTwo.addEventListener('click', function (event) {
+      // const testingDelete = Object.keys(data.deckLists).reduce((object, key) => {
+      //   if (key !== id) {
+      //     object[key] = data.deckLists[key];
+      //   }
+      //   return object;
+      // }, {});
+      // console.log('test:', testingDelete);
+    });
 
     $a.setAttribute('data-entry-id', id);
     $a.setAttribute('class', 'testing-button-design');
@@ -326,7 +333,7 @@ function decklistRender() {
   }
   return $listElements;
 }
-// console.log('data.decklist:', data.deckLists);
+// console.log('data', data);
 
 document.addEventListener('DOMContentLoaded', function (event) {
   const $lis = decklistRender();
@@ -336,11 +343,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
 // ----------------------- DELETING DECKLIST -----------------------
 
 // $delete.addEventListener('click', function (event) {
-//   for (let i = 0; i < data.newList.length; i++) {
-//     if (data.newList.id === data.newList[i].id) {
-//       data.newList.splice(i, 1);
-//       return;
-//     }
+// for (let i = 0; i < data.deckLists.length; i++) {
+//   if (data.deckLists.id === data.deckLists[i].id) {
+//     data.deckLists.splice(i, 1);
+//     console.log('testing', data.deckLists[i]);
+//     return;
+//   }
 //   }
 
 //   for (var x = 0; x < data.newList.length; x++) {
