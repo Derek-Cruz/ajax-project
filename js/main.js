@@ -309,17 +309,18 @@ function decklistRender() {
     $li.textContent = data.deckLists[id].deckName;
 
     $div.setAttribute('class', 'testing-deck-div');
+    $div.setAttribute('data-entry-id', id);
 
     $aTwo.setAttribute('class', ' testing-button-design');
     $aTwo.textContent = 'DELETE';
     $aTwo.addEventListener('click', function (event) {
-      // const testingDelete = Object.keys(data.deckLists).reduce((object, key) => {
-      //   if (key !== id) {
-      //     object[key] = data.deckLists[key];
-      //   }
-      //   return object;
-      // }, {});
-      // console.log('test:', testingDelete);
+      if (data.deckLists[id]) {
+        delete data.deckLists[id];
+      }
+      $ulList.innerHTML = '';
+
+      const $lis = decklistRender();
+      $ulList.append(...$lis);
     });
 
     $a.setAttribute('data-entry-id', id);
@@ -333,28 +334,8 @@ function decklistRender() {
   }
   return $listElements;
 }
-// console.log('data', data);
 
 document.addEventListener('DOMContentLoaded', function (event) {
   const $lis = decklistRender();
   $ulList.append(...$lis);
 });
-
-// ----------------------- DELETING DECKLIST -----------------------
-
-// $delete.addEventListener('click', function (event) {
-// for (let i = 0; i < data.deckLists.length; i++) {
-//   if (data.deckLists.id === data.deckLists[i].id) {
-//     data.deckLists.splice(i, 1);
-//     console.log('testing', data.deckLists[i]);
-//     return;
-//   }
-//   }
-
-//   for (var x = 0; x < data.newList.length; x++) {
-//     $ulList.appendChild(decklistRender(data.entries[x]));
-//   }
-//   console.log('I WAS CLICKED');
-// });
-
-// console.log('test', typeof $delete);
