@@ -301,8 +301,8 @@ function decklistRender() {
     const id = deckIds[i];
     const $li = document.createElement('li');
     const $div = document.createElement('div');
-    const $a = document.createElement('a');
-    const $aTwo = document.createElement('a');
+    const $button = document.createElement('button');
+    const $buttonTwo = document.createElement('button');
 
     $li.setAttribute('class', 'row decklist-render-li');
     $li.setAttribute('data-deck-id', id);
@@ -311,26 +311,25 @@ function decklistRender() {
     $div.setAttribute('class', 'testing-deck-div');
     $div.setAttribute('data-entry-id', id);
 
-    $aTwo.setAttribute('class', ' testing-button-design');
-    $aTwo.textContent = 'DELETE';
-    $aTwo.addEventListener('click', function (event) {
+    $buttonTwo.setAttribute('class', ' testing-button-design');
+    $buttonTwo.textContent = 'DELETE';
+    $buttonTwo.addEventListener('click', function (event) {
       if (data.deckLists[id]) {
         delete data.deckLists[id];
       }
       $ulList.innerHTML = '';
-
       const $lis = decklistRender();
       $ulList.append(...$lis);
     });
 
-    $a.setAttribute('data-entry-id', id);
-    $a.setAttribute('class', 'testing-button-design');
-    $a.textContent = 'VIEW';
+    $button.setAttribute('data-entry-id', id);
+    $button.setAttribute('class', 'testing-button-design');
+    $button.textContent = 'VIEW';
 
     $listElements.push($li);
     $li.appendChild($div);
-    $div.appendChild($aTwo);
-    $div.appendChild($a);
+    $div.appendChild($buttonTwo);
+    $div.appendChild($button);
   }
   return $listElements;
 }

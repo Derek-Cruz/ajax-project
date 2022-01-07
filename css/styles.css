@@ -17,22 +17,26 @@ input:-webkit-autofill {
 }
 
 .decklist-render-li {
+  font-size: 1.7rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 30px;
   padding: 0 6px;
+  margin-bottom: 15px;
 }
 
 .testing-button-design {
+  height: 30px;
   font-size: 0.8rem;
-  padding: 7px 5px 3px 5px;
+  padding-top: 4px;
   border-radius: 8px;
   font-family: 'Crimson Text', sans-serif;
   background-color: red;
   color: black;
   cursor: pointer;
+  border-style: none;
 }
 
 .testing-deck-div {
@@ -350,15 +354,17 @@ input:-webkit-autofill {
 }
 
 .my-decks-h2 {
+  height: 35px;
   color: white;
   font-family: 'Crimson Text', sans-serif;
   font-size: 1.5rem;
   text-decoration: underline;
-  margin: 0.75rem 0;
+  margin: 0.75rem 0 0 0;
   padding-left: 0.188rem;
 }
 
 .ul-decklist {
+  margin: 13px 0 0 0;
   padding-left: 0;
   font-family: 'Crimson Text', sans-serif;
 }
@@ -477,8 +483,9 @@ input:-webkit-autofill {
   }
 
   .my-decks-h2 {
+    height: 35px;
     font-size: 2.1rem;
-    margin: 0.938rem 0;
+    margin: 0.938rem 0 0 0;
     padding-left: 0;
   }
 
