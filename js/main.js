@@ -7,6 +7,7 @@ const $cardList = document.querySelector('#card-list');
 const $deckButton = document.querySelector('.deck-button');
 const $modalDeckButton = document.querySelector('.modal-container');
 const $modalDeckButtonClose = document.querySelector('.fa-window-close');
+const $viewdeckbutton = document.querySelector('.modal-container-two');
 const $arrowLeft = document.querySelector('.fa-long-arrow-alt-left');
 const $arrowRight = document.querySelector('.fa-long-arrow-alt-right');
 const $aTagMyDecks = document.querySelector('.a-my-decks');
@@ -325,6 +326,10 @@ function decklistRender() {
     $button.setAttribute('data-entry-id', id);
     $button.setAttribute('class', 'button-style-decklist-render');
     $button.textContent = 'VIEW';
+    $button.addEventListener('click', function (event) {
+      $viewdeckbutton.classList.remove('hidden');
+      // console.log('I WAS CLICKED');
+    });
 
     $listElements.push($li);
     $li.appendChild($div);
