@@ -308,10 +308,10 @@ function decklistRender() {
     $li.setAttribute('data-deck-id', id);
     $li.textContent = data.deckLists[id].deckName;
 
-    $div.setAttribute('class', 'testing-deck-div');
+    $div.setAttribute('class', 'decklist-render-div');
     $div.setAttribute('data-entry-id', id);
 
-    $buttonTwo.setAttribute('class', ' testing-button-design');
+    $buttonTwo.setAttribute('class', 'button-style-decklist-render');
     $buttonTwo.textContent = 'DELETE';
     $buttonTwo.addEventListener('click', function (event) {
       if (data.deckLists[id]) {
@@ -323,7 +323,7 @@ function decklistRender() {
     });
 
     $button.setAttribute('data-entry-id', id);
-    $button.setAttribute('class', 'testing-button-design');
+    $button.setAttribute('class', 'button-style-decklist-render');
     $button.textContent = 'VIEW';
 
     $listElements.push($li);
