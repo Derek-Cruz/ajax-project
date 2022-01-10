@@ -277,7 +277,7 @@ document.getElementById('save-list').addEventListener('click', () => {
   $spells.innerHTML = '';
 });
 
-// --------------------------------------------------------
+// --------------------------- Going to use to display my deck in view ---------------------------
 
 // function testingRender(deck) {
 //   const $div = document.createElement('div');
