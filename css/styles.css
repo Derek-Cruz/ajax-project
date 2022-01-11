@@ -16,25 +16,6 @@ input:-webkit-autofill {
   background-color: black;
 }
 
-.decklist-render-li {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 30px;
-  padding: 0 6px;
-}
-
-.testing-button-design {
-  font-size: 0.8rem;
-  padding: 7px 5px 3px 5px;
-  border-radius: 8px;
-  font-family: 'Crimson Text', sans-serif;
-  background-color: red;
-  color: black;
-  cursor: pointer;
-}
-
 /* - Header - */
 
 .header-background {
@@ -248,12 +229,23 @@ input:-webkit-autofill {
   height: 25px;
   background-color: #1d1d1d;
   border-radius: 8px;
-  margin-left: 5px;
+  margin-left: 0.313rem;
   border: none;
-  padding: 10px 0 0 10px;
+  padding: 0.625rem 0 0 0.625rem;
 }
 
 .modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container-two {
   position: fixed;
   top: 0;
   right: 0;
@@ -344,17 +336,48 @@ input:-webkit-autofill {
 }
 
 .my-decks-h2 {
+  height: 25px;
   color: white;
   font-family: 'Crimson Text', sans-serif;
   font-size: 1.5rem;
   text-decoration: underline;
-  margin: 0.75rem 0;
+  margin: 0.75rem 0 0 0;
   padding-left: 0.188rem;
 }
 
 .ul-decklist {
+  margin: 0;
   padding-left: 0;
   font-family: 'Crimson Text', sans-serif;
+}
+
+.decklist-render-li {
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  padding: 0 0.375rem;
+  margin-bottom: 0.188rem;
+}
+
+.button-style-decklist-render {
+  height: 24px;
+  font-size: 0.7rem;
+  padding-top: 0.25rem;
+  border-radius: 8px;
+  font-family: 'Crimson Text', sans-serif;
+  background-color: red;
+  color: black;
+  cursor: pointer;
+  border-style: none;
+}
+
+.decklist-render-div {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
 }
 
 /* - Added to deck modal - */
@@ -471,16 +494,32 @@ input:-webkit-autofill {
   }
 
   .my-decks-h2 {
+    height: 35px;
     font-size: 2.1rem;
-    margin: 0.938rem 0;
+    margin: 0.938rem 0 0 0;
     padding-left: 0;
   }
 
   .decklist-render-li {
+    font-size: 1.4rem;
     padding: unset;
+    margin-bottom: 0.563rem;
   }
 
   .selected-card-preview {
     font-size: 1rem;
+  }
+
+  .ul-decklist {
+    margin: 0.813rem 0 0 0;
+  }
+
+  .testing-button-design {
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .testing-deck-div {
+    width: 106px;
   }
 }

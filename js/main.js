@@ -7,6 +7,7 @@ const $cardList = document.querySelector('#card-list');
 const $deckButton = document.querySelector('.deck-button');
 const $modalDeckButton = document.querySelector('.modal-container');
 const $modalDeckButtonClose = document.querySelector('.fa-window-close');
+const $viewdeckbutton = document.querySelector('.modal-container-two');
 const $arrowLeft = document.querySelector('.fa-long-arrow-alt-left');
 const $arrowRight = document.querySelector('.fa-long-arrow-alt-right');
 const $aTagMyDecks = document.querySelector('.a-my-decks');
@@ -276,7 +277,7 @@ document.getElementById('save-list').addEventListener('click', () => {
   $spells.innerHTML = '';
 });
 
-// --------------------------------------------------------
+// --------------------------- Going to use to display my deck in view ---------------------------
 
 // function testingRender(deck) {
 //   const $div = document.createElement('div');
@@ -301,23 +302,42 @@ function decklistRender() {
     const id = deckIds[i];
     const $li = document.createElement('li');
     const $div = document.createElement('div');
-    const $a = document.createElement('a');
+    const $button = document.createElement('button');
+    const $buttonTwo = document.createElement('button');
 
     $li.setAttribute('class', 'row decklist-render-li');
     $li.setAttribute('data-deck-id', id);
     $li.textContent = data.deckLists[id].deckName;
 
-    $a.setAttribute('data-entry-id', id);
-    $a.setAttribute('class', 'testing-button-design');
-    $a.textContent = 'VIEW';
+    $div.setAttribute('class', 'decklist-render-div');
+    $div.setAttribute('data-entry-id', id);
+
+    $buttonTwo.setAttribute('class', 'button-style-decklist-render');
+    $buttonTwo.textContent = 'DELETE';
+    $buttonTwo.addEventListener('click', function (event) {
+      if (data.deckLists[id]) {
+        delete data.deckLists[id];
+      }
+      $ulList.innerHTML = '';
+      const $lis = decklistRender();
+      $ulList.append(...$lis);
+    });
+
+    $button.setAttribute('data-entry-id', id);
+    $button.setAttribute('class', 'button-style-decklist-render');
+    $button.textContent = 'VIEW';
+    $button.addEventListener('click', function (event) {
+      $viewdeckbutton.classList.remove('hidden');
+      // console.log('I WAS CLICKED');
+    });
 
     $listElements.push($li);
     $li.appendChild($div);
-    $div.appendChild($a);
+    $div.appendChild($buttonTwo);
+    $div.appendChild($button);
   }
   return $listElements;
 }
-// console.log('data.decklist:', data.deckLists);
 
 document.addEventListener('DOMContentLoaded', function (event) {
   const $lis = decklistRender();
