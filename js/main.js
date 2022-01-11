@@ -6,7 +6,9 @@ const $getStartedButton = document.querySelector('.get-started-button-style');
 const $cardList = document.querySelector('#card-list');
 const $deckButton = document.querySelector('.deck-button');
 const $modalDeckButton = document.querySelector('.modal-container');
+const $modalViewButton = document.querySelector('.modal-container-two');
 const $modalDeckButtonClose = document.querySelector('.fa-window-close');
+const $modalViewButtonClose = document.querySelector('.testingclose');
 const $viewdeckbutton = document.querySelector('.modal-container-two');
 const $arrowLeft = document.querySelector('.fa-long-arrow-alt-left');
 const $arrowRight = document.querySelector('.fa-long-arrow-alt-right');
@@ -27,6 +29,7 @@ const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
 const $ulList = document.querySelector('.ul-decklist');
+const $testingh1 = document.querySelector('.testingh1');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -57,6 +60,10 @@ $deckButton.addEventListener('click', function () {
 
 $modalDeckButtonClose.addEventListener('click', function () {
   $modalDeckButton.classList.add('hidden');
+});
+
+$modalViewButtonClose.addEventListener('click', function () {
+  $modalViewButton.classList.add('hidden');
 });
 
 $arrowLeft.addEventListener('click', function () {
@@ -328,6 +335,7 @@ function decklistRender() {
     $button.textContent = 'VIEW';
     $button.addEventListener('click', function (event) {
       $viewdeckbutton.classList.remove('hidden');
+      $testingh1.innerHTML = data.deckLists[id].deckName;
       // console.log('I WAS CLICKED');
     });
 
