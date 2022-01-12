@@ -28,6 +28,12 @@ const $landsDiv = document.querySelector('.lands-div');
 const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
+const $creaturesDivView = document.querySelector('.creatures-div-view');
+// const $planeswalkersDivView = document.querySelector('.planeswalkers-div-view');
+// const $landsDivView = document.querySelector('.lands-div-view');
+// const $enchantmentsDivView = document.querySelector('.enchantments-div-view');
+// const $spellsDivView = document.querySelector('.spells-div-view');
+// const $artifactsDivView = document.querySelector('.artifacts-div-view');
 const $ulList = document.querySelector('.ul-decklist');
 const $testingh1 = document.querySelector('.testingh1');
 
@@ -284,24 +290,6 @@ document.getElementById('save-list').addEventListener('click', () => {
   $spells.innerHTML = '';
 });
 
-// --------------------------- Going to use to display my deck in view ---------------------------
-
-// function testingRender(deck) {
-//   const $div = document.createElement('div');
-//   const $p = document.createElement('p');
-
-//   if (deck.type === 'Creature') {
-//     $creaturesDiv.classList.remove('hidden');
-//     $div.setAttribute('class', 'creatures');
-//     $p.setAttribute('class', 'p-modal-listing');
-//     $p.textContent = deck.name;
-//     $div.append($p);
-//     $creatures.append($div);
-//   }
-// }
-
-// --------------------------------------------------------
-
 function decklistRender() {
   const deckIds = Object.keys(data.deckLists);
   const $listElements = [];
@@ -309,6 +297,8 @@ function decklistRender() {
     const id = deckIds[i];
     const $li = document.createElement('li');
     const $div = document.createElement('div');
+    const $divTest = document.createElement('div');
+    const $p = document.createElement('p');
     const $button = document.createElement('button');
     const $buttonTwo = document.createElement('button');
 
@@ -333,18 +323,26 @@ function decklistRender() {
     $button.setAttribute('data-entry-id', id);
     $button.setAttribute('class', 'button-style-decklist-render');
     $button.textContent = 'VIEW';
+    // -----------------------------------------------
     $button.addEventListener('click', function (event) {
       $viewdeckbutton.classList.remove('hidden');
       $testingh1.innerHTML = data.deckLists[id].deckName;
 
-      const listObj = {
-        name: data.deckLists[id],
-        type: event.target.getAttribute('data-card-types')
-      };
-      typeCompare(listObj);
-      renderList(listObj);
-      // console.log('DATA:', data.deckLists[id].creature.length);
+      function testingRender() {
+        if (data.deckLists[id].creature) {
+          $creaturesDivView.classList.remove('hidden');
+          $divTest.setAttribute('class', 'creatures');
+          $p.setAttribute('class', 'p-modal-listing');
+          $p.textContent = data.deckLists[id].creature;
+          $divTest.append($p);
+          $creatures.append($divTest);
+          // console.log('DATA', $divTest);
+        }
+      }
+      testingRender();
     });
+
+    // -----------------------------------------------
 
     $listElements.push($li);
     $li.appendChild($div);
