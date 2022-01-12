@@ -28,12 +28,6 @@ const $landsDiv = document.querySelector('.lands-div');
 const $enchantmentsDiv = document.querySelector('.enchantments-div');
 const $spellsDiv = document.querySelector('.spells-div');
 const $artifactsDiv = document.querySelector('.artifacts-div');
-// const $creaturesDivTwo = document.querySelector('.creatures-div-deck-view');
-// const $planeswalkersDivTwo = document.querySelector('.planeswalkers-div-deck-view');
-// const $landsDivTwo = document.querySelector('.lands-div-deck-view');
-// const $enchantmentsDivTwo = document.querySelector('.enchantments-div-deck-view');
-// const $spellsDivTwo = document.querySelector('.spells-div-deck-view');
-// const $artifactsDivTwo = document.querySelector('.artifacts-div-deck-view');
 const $ulList = document.querySelector('.ul-decklist');
 const $testingh1 = document.querySelector('.testingh1');
 
@@ -342,9 +336,9 @@ function decklistRender() {
     $button.addEventListener('click', function (event) {
       $viewdeckbutton.classList.remove('hidden');
       $testingh1.innerHTML = data.deckLists[id].deckName;
-      // console.log('I WAS CLICKED');
+
       const listObj = {
-        name: data.deckLists[id].creature.length,
+        name: data.deckLists[id],
         type: event.target.getAttribute('data-card-types')
       };
       typeCompare(listObj);
