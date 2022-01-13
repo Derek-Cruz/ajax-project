@@ -16,23 +16,35 @@ const $aTagMyDecks = document.querySelector('.a-my-decks');
 const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
+
 const $creatures = document.querySelector('.creatures-card-holder');
-const $planeswalkers = document.querySelector('.planeswalkers-card-holder');
-const $lands = document.querySelector('.lands-card-holder');
-const $enchantments = document.querySelector('.enchantments-card-holder');
-const $spells = document.querySelector('.spells-card-holder');
-const $artifacts = document.querySelector('.artifacts-card-holder');
+const $creaturesView = document.querySelector('.creatures-card-holder-view');
 const $creaturesDiv = document.querySelector('.creatures-div');
-const $planeswalkersDiv = document.querySelector('.planeswalkers-div');
-const $landsDiv = document.querySelector('.lands-div');
-const $enchantmentsDiv = document.querySelector('.enchantments-div');
-const $spellsDiv = document.querySelector('.spells-div');
-const $artifactsDiv = document.querySelector('.artifacts-div');
 const $creaturesDivView = document.querySelector('.creatures-div-view');
-// const $planeswalkersDivView = document.querySelector('.planeswalkers-div-view');
+
+const $lands = document.querySelector('.lands-card-holder');
+// const $landsView = document.querySelector('.lands-card-holder-view');
+const $landsDiv = document.querySelector('.lands-div');
 // const $landsDivView = document.querySelector('.lands-div-view');
+
+const $planeswalkers = document.querySelector('.planeswalkers-card-holder');
+// const $planeswalkersView = document.querySelector('.planeswalkers-card-holder-view');
+const $planeswalkersDiv = document.querySelector('.planeswalkers-div');
+// const $planeswalkersDivView = document.querySelector('.planeswalkers-div-view');
+
+const $enchantments = document.querySelector('.enchantments-card-holder');
+// const $enchantmentsView = document.querySelector('.enchantments-card-holder-view');
+const $enchantmentsDiv = document.querySelector('.enchantments-div');
 // const $enchantmentsDivView = document.querySelector('.enchantments-div-view');
+
+const $spells = document.querySelector('.spells-card-holder');
+// const $spellsView = document.querySelector('.spells-card-holder-view');
+const $spellsDiv = document.querySelector('.spells-div');
 // const $spellsDivView = document.querySelector('.spells-div-view');
+
+const $artifacts = document.querySelector('.artifacts-card-holder');
+// const $artifactsView = document.querySelector('.artifacts-card-holder-view');
+const $artifactsDiv = document.querySelector('.artifacts-div');
 // const $artifactsDivView = document.querySelector('.artifacts-div-view');
 const $ulList = document.querySelector('.ul-decklist');
 const $testingh1 = document.querySelector('.testingh1');
@@ -298,7 +310,7 @@ function decklistRender() {
     const $li = document.createElement('li');
     const $div = document.createElement('div');
     const $divTest = document.createElement('div');
-    const $p = document.createElement('p');
+    const $pTest = document.createElement('p');
     const $button = document.createElement('button');
     const $buttonTwo = document.createElement('button');
 
@@ -329,14 +341,17 @@ function decklistRender() {
       $testingh1.innerHTML = data.deckLists[id].deckName;
 
       function testingRender() {
-        if (data.deckLists[id].creature) {
+        const creatures = (data.deckLists[id].creature);
+
+        for (let i = 0; i < creatures.length; i++) {
           $creaturesDivView.classList.remove('hidden');
-          $divTest.setAttribute('class', 'creatures');
-          $p.setAttribute('class', 'p-modal-listing');
-          $p.textContent = data.deckLists[id].creature;
-          $divTest.append($p);
-          $creatures.append($divTest);
-          // console.log('DATA', $divTest);
+          $divTest.setAttribute('class', 'creatures-view');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = creatures[i].name;
+          $divTest.append($pTest);
+          $creaturesView.append($divTest);
+          // console.log('DATA:', creatures);
+          // console.log('DATA2:', $creaturesView);
         }
       }
       testingRender();
