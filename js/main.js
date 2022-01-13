@@ -49,7 +49,6 @@ function getData() {
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // console.log('results:', xhr.response);
     for (var i = 0; i < xhr.response.cards.length; i++) {
       var $cards = renderCards(xhr.response.cards[i]);
       $cardList.appendChild($cards);
@@ -76,10 +75,12 @@ $modalDeckButtonClose.addEventListener('click', function () {
 
 $modalViewButtonClose.addEventListener('click', function () {
   $modalViewButton.classList.add('hidden');
-  // console.log('I WAS CLICKED');
-
-  $creaturesView.innerHTML = '';
-  $spellsView.innerHTML = 'test';
+  $creaturesDivView.classList.add('hidden');
+  $artifactsDivView.classList.add('hidden');
+  $spellsDivView.classList.add('hidden');
+  $enchantmentsDivView.classList.add('hidden');
+  $planeswalkersDivView.classList.add('hidden');
+  $landsDivView.classList.add('hidden');
 });
 
 $arrowLeft.addEventListener('click', function () {
@@ -138,7 +139,6 @@ function renderCards(card) {
   $button.setAttribute('data-card-types', card.types);
 
   $button.addEventListener('click', function (event) {
-    // console.log('data:', data.list);
     const listObj = {
       name: event.target.getAttribute('data-card-name'),
       type: event.target.getAttribute('data-card-types')
@@ -171,8 +171,6 @@ function typeCompare(obj) {
     data.list.spells.push(obj);
   }
 }
-
-// ------------------------------------------------------CARDS IN MODAL------------------------------------------------------
 
 function renderList(card) {
   const $div = document.createElement('div');
@@ -227,8 +225,6 @@ function renderList(card) {
     $spells.append($div);
   }
 }
-
-// ------------------------------------------------------SEARCH------------------------------------------------------
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
