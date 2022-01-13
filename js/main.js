@@ -23,29 +23,29 @@ const $creaturesDiv = document.querySelector('.creatures-div');
 const $creaturesDivView = document.querySelector('.creatures-div-view');
 
 const $lands = document.querySelector('.lands-card-holder');
-// const $landsView = document.querySelector('.lands-card-holder-view');
+const $landsView = document.querySelector('.lands-card-holder-view');
 const $landsDiv = document.querySelector('.lands-div');
-// const $landsDivView = document.querySelector('.lands-div-view');
+const $landsDivView = document.querySelector('.lands-div-view');
 
 const $planeswalkers = document.querySelector('.planeswalkers-card-holder');
-// const $planeswalkersView = document.querySelector('.planeswalkers-card-holder-view');
+const $planeswalkersView = document.querySelector('.planeswalkers-card-holder-view');
 const $planeswalkersDiv = document.querySelector('.planeswalkers-div');
-// const $planeswalkersDivView = document.querySelector('.planeswalkers-div-view');
+const $planeswalkersDivView = document.querySelector('.planeswalkers-div-view');
 
 const $enchantments = document.querySelector('.enchantments-card-holder');
-// const $enchantmentsView = document.querySelector('.enchantments-card-holder-view');
+const $enchantmentsView = document.querySelector('.enchantments-card-holder-view');
 const $enchantmentsDiv = document.querySelector('.enchantments-div');
-// const $enchantmentsDivView = document.querySelector('.enchantments-div-view');
+const $enchantmentsDivView = document.querySelector('.enchantments-div-view');
 
 const $spells = document.querySelector('.spells-card-holder');
-// const $spellsView = document.querySelector('.spells-card-holder-view');
+const $spellsView = document.querySelector('.spells-card-holder-view');
 const $spellsDiv = document.querySelector('.spells-div');
-// const $spellsDivView = document.querySelector('.spells-div-view');
+const $spellsDivView = document.querySelector('.spells-div-view');
 
 const $artifacts = document.querySelector('.artifacts-card-holder');
-// const $artifactsView = document.querySelector('.artifacts-card-holder-view');
+const $artifactsView = document.querySelector('.artifacts-card-holder-view');
 const $artifactsDiv = document.querySelector('.artifacts-div');
-// const $artifactsDivView = document.querySelector('.artifacts-div-view');
+const $artifactsDivView = document.querySelector('.artifacts-div-view');
 const $ulList = document.querySelector('.ul-decklist');
 const $testingh1 = document.querySelector('.testingh1');
 
@@ -310,7 +310,6 @@ function decklistRender() {
     const $li = document.createElement('li');
     const $div = document.createElement('div');
     const $divTest = document.createElement('div');
-    const $pTest = document.createElement('p');
     const $button = document.createElement('button');
     const $buttonTwo = document.createElement('button');
 
@@ -342,18 +341,73 @@ function decklistRender() {
 
       function testingRender() {
         const creatures = (data.deckLists[id].creature);
+        const lands = (data.deckLists[id].land);
+        const artifacts = (data.deckLists[id].artifact);
+        const enchantments = (data.deckLists[id].enchantment);
+        const planeswalkers = (data.deckLists[id].planeswalker);
+        const spells = (data.deckLists[id].spells);
 
         for (let i = 0; i < creatures.length; i++) {
           $creaturesDivView.classList.remove('hidden');
           $divTest.setAttribute('class', 'creatures-view');
+          const $pTest = document.createElement('p');
           $pTest.setAttribute('class', 'p-modal-listing');
           $pTest.textContent = creatures[i].name;
           $divTest.append($pTest);
           $creaturesView.append($divTest);
-          // console.log('DATA:', creatures);
-          // console.log('DATA2:', $creaturesView);
+        }
+        for (let i = 0; i < lands.length; i++) {
+          $landsDivView.classList.remove('hidden');
+          $divTest.setAttribute('class', 'lands-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = lands[i].name;
+          $divTest.append($pTest);
+          $landsView.append($divTest);
+        }
+        for (let i = 0; i < artifacts.length; i++) {
+          $artifactsDivView.classList.remove('hidden');
+          $divTest.setAttribute('class', 'artifacts-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = artifacts[i].name;
+          $divTest.append($pTest);
+          $artifactsView.append($divTest);
+        }
+        for (let i = 0; i < enchantments.length; i++) {
+          $enchantmentsDivView.classList.remove('hidden');
+          $divTest.setAttribute('class', 'enchantments-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = enchantments[i].name;
+          $divTest.append($pTest);
+          $enchantmentsView.append($divTest);
+        }
+        for (let i = 0; i < planeswalkers.length; i++) {
+          $planeswalkersDivView.classList.remove('hidden');
+          $divTest.setAttribute('class', 'planeswalkers-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = planeswalkers[i].name;
+          $divTest.append($pTest);
+          $planeswalkersView.append($divTest);
+        }
+        for (let i = 0; i < spells.length; i++) {
+          $spellsDivView.classList.remove('hidden');
+          $divTest.setAttribute('class', 'spells-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = spells[i].name;
+          $divTest.append($pTest);
+          $spellsView.append($divTest);
         }
       }
+      $creaturesView.innerHTML = '';
+      $artifactsView.innerHTML = '';
+      $enchantmentsView.innerHTML = '';
+      $spellsView.innerHTML = '';
+      $planeswalkersView.innerHTML = '';
+      $landsView.innerHTML = '';
       testingRender();
     });
 
