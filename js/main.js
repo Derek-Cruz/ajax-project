@@ -76,6 +76,10 @@ $modalDeckButtonClose.addEventListener('click', function () {
 
 $modalViewButtonClose.addEventListener('click', function () {
   $modalViewButton.classList.add('hidden');
+  // console.log('I WAS CLICKED');
+
+  $creaturesView.innerHTML = '';
+  $spellsView.innerHTML = 'test';
 });
 
 $arrowLeft.addEventListener('click', function () {
@@ -303,7 +307,6 @@ function decklistRender() {
     const id = deckIds[i];
     const $li = document.createElement('li');
     const $div = document.createElement('div');
-    const $divTest = document.createElement('div');
     const $button = document.createElement('button');
     const $buttonTwo = document.createElement('button');
 
@@ -328,7 +331,6 @@ function decklistRender() {
     $button.setAttribute('data-entry-id', id);
     $button.setAttribute('class', 'button-style-decklist-render');
     $button.textContent = 'VIEW';
-    // -----------------------------------------------
     $button.addEventListener('click', function (event) {
       $viewdeckbutton.classList.remove('hidden');
       $testingh1.innerHTML = data.deckLists[id].deckName;
@@ -343,6 +345,7 @@ function decklistRender() {
 
         for (let i = 0; i < creatures.length; i++) {
           $creaturesDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
           $divTest.setAttribute('class', 'creatures-view');
           const $pTest = document.createElement('p');
           $pTest.setAttribute('class', 'p-modal-listing');
@@ -352,6 +355,7 @@ function decklistRender() {
         }
         for (let i = 0; i < lands.length; i++) {
           $landsDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
           $divTest.setAttribute('class', 'lands-view');
           const $pTest = document.createElement('p');
           $pTest.setAttribute('class', 'p-modal-listing');
@@ -361,6 +365,7 @@ function decklistRender() {
         }
         for (let i = 0; i < artifacts.length; i++) {
           $artifactsDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
           $divTest.setAttribute('class', 'artifacts-view');
           const $pTest = document.createElement('p');
           $pTest.setAttribute('class', 'p-modal-listing');
@@ -370,6 +375,7 @@ function decklistRender() {
         }
         for (let i = 0; i < enchantments.length; i++) {
           $enchantmentsDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
           $divTest.setAttribute('class', 'enchantments-view');
           const $pTest = document.createElement('p');
           $pTest.setAttribute('class', 'p-modal-listing');
@@ -379,6 +385,7 @@ function decklistRender() {
         }
         for (let i = 0; i < planeswalkers.length; i++) {
           $planeswalkersDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
           $divTest.setAttribute('class', 'planeswalkers-view');
           const $pTest = document.createElement('p');
           $pTest.setAttribute('class', 'p-modal-listing');
@@ -388,6 +395,7 @@ function decklistRender() {
         }
         for (let i = 0; i < spells.length; i++) {
           $spellsDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
           $divTest.setAttribute('class', 'spells-view');
           const $pTest = document.createElement('p');
           $pTest.setAttribute('class', 'p-modal-listing');
@@ -404,8 +412,6 @@ function decklistRender() {
       $landsView.innerHTML = '';
       testingRender();
     });
-
-    // -----------------------------------------------
 
     $listElements.push($li);
     $li.appendChild($div);
