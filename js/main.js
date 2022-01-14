@@ -6,7 +6,9 @@ const $getStartedButton = document.querySelector('.get-started-button-style');
 const $cardList = document.querySelector('#card-list');
 const $deckButton = document.querySelector('.deck-button');
 const $modalDeckButton = document.querySelector('.modal-container');
+const $modalViewButton = document.querySelector('.modal-container-two');
 const $modalDeckButtonClose = document.querySelector('.fa-window-close');
+const $modalViewButtonClose = document.querySelector('.testingclose');
 const $viewdeckbutton = document.querySelector('.modal-container-two');
 const $arrowLeft = document.querySelector('.fa-long-arrow-alt-left');
 const $arrowRight = document.querySelector('.fa-long-arrow-alt-right');
@@ -15,18 +17,31 @@ const $aTagMakeDeck = document.querySelector('.a-make-deck');
 const $searchBar = document.querySelector('#searchBar');
 const $searchButton = document.querySelector('.searchButton');
 const $creatures = document.querySelector('.creatures-card-holder');
-const $planeswalkers = document.querySelector('.planeswalkers-card-holder');
-const $lands = document.querySelector('.lands-card-holder');
-const $enchantments = document.querySelector('.enchantments-card-holder');
-const $spells = document.querySelector('.spells-card-holder');
-const $artifacts = document.querySelector('.artifacts-card-holder');
+const $creaturesView = document.querySelector('.creatures-card-holder-view');
 const $creaturesDiv = document.querySelector('.creatures-div');
-const $planeswalkersDiv = document.querySelector('.planeswalkers-div');
+const $creaturesDivView = document.querySelector('.creatures-div-view');
+const $lands = document.querySelector('.lands-card-holder');
+const $landsView = document.querySelector('.lands-card-holder-view');
 const $landsDiv = document.querySelector('.lands-div');
+const $landsDivView = document.querySelector('.lands-div-view');
+const $planeswalkers = document.querySelector('.planeswalkers-card-holder');
+const $planeswalkersView = document.querySelector('.planeswalkers-card-holder-view');
+const $planeswalkersDiv = document.querySelector('.planeswalkers-div');
+const $planeswalkersDivView = document.querySelector('.planeswalkers-div-view');
+const $enchantments = document.querySelector('.enchantments-card-holder');
+const $enchantmentsView = document.querySelector('.enchantments-card-holder-view');
 const $enchantmentsDiv = document.querySelector('.enchantments-div');
+const $enchantmentsDivView = document.querySelector('.enchantments-div-view');
+const $spells = document.querySelector('.spells-card-holder');
+const $spellsView = document.querySelector('.spells-card-holder-view');
 const $spellsDiv = document.querySelector('.spells-div');
+const $spellsDivView = document.querySelector('.spells-div-view');
+const $artifacts = document.querySelector('.artifacts-card-holder');
+const $artifactsView = document.querySelector('.artifacts-card-holder-view');
 const $artifactsDiv = document.querySelector('.artifacts-div');
+const $artifactsDivView = document.querySelector('.artifacts-div-view');
 const $ulList = document.querySelector('.ul-decklist');
+const $testingh1 = document.querySelector('.testingh1');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -34,7 +49,6 @@ function getData() {
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // console.log('results:', xhr.response);
     for (var i = 0; i < xhr.response.cards.length; i++) {
       var $cards = renderCards(xhr.response.cards[i]);
       $cardList.appendChild($cards);
@@ -57,6 +71,16 @@ $deckButton.addEventListener('click', function () {
 
 $modalDeckButtonClose.addEventListener('click', function () {
   $modalDeckButton.classList.add('hidden');
+});
+
+$modalViewButtonClose.addEventListener('click', function () {
+  $modalViewButton.classList.add('hidden');
+  $creaturesDivView.classList.add('hidden');
+  $artifactsDivView.classList.add('hidden');
+  $spellsDivView.classList.add('hidden');
+  $enchantmentsDivView.classList.add('hidden');
+  $planeswalkersDivView.classList.add('hidden');
+  $landsDivView.classList.add('hidden');
 });
 
 $arrowLeft.addEventListener('click', function () {
@@ -115,7 +139,6 @@ function renderCards(card) {
   $button.setAttribute('data-card-types', card.types);
 
   $button.addEventListener('click', function (event) {
-    // console.log('data:', data.list);
     const listObj = {
       name: event.target.getAttribute('data-card-name'),
       type: event.target.getAttribute('data-card-types')
@@ -148,8 +171,6 @@ function typeCompare(obj) {
     data.list.spells.push(obj);
   }
 }
-
-// ------------------------------------------------------CARDS IN MODAL------------------------------------------------------
 
 function renderList(card) {
   const $div = document.createElement('div');
@@ -204,8 +225,6 @@ function renderList(card) {
     $spells.append($div);
   }
 }
-
-// ------------------------------------------------------SEARCH------------------------------------------------------
 
 $searchBar.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
@@ -277,24 +296,6 @@ document.getElementById('save-list').addEventListener('click', () => {
   $spells.innerHTML = '';
 });
 
-// --------------------------- Going to use to display my deck in view ---------------------------
-
-// function testingRender(deck) {
-//   const $div = document.createElement('div');
-//   const $p = document.createElement('p');
-
-//   if (deck.type === 'Creature') {
-//     $creaturesDiv.classList.remove('hidden');
-//     $div.setAttribute('class', 'creatures');
-//     $p.setAttribute('class', 'p-modal-listing');
-//     $p.textContent = deck.name;
-//     $div.append($p);
-//     $creatures.append($div);
-//   }
-// }
-
-// --------------------------------------------------------
-
 function decklistRender() {
   const deckIds = Object.keys(data.deckLists);
   const $listElements = [];
@@ -328,7 +329,84 @@ function decklistRender() {
     $button.textContent = 'VIEW';
     $button.addEventListener('click', function (event) {
       $viewdeckbutton.classList.remove('hidden');
-      // console.log('I WAS CLICKED');
+      $testingh1.innerHTML = data.deckLists[id].deckName;
+
+      function testingRender() {
+        const creatures = (data.deckLists[id].creature);
+        const lands = (data.deckLists[id].land);
+        const artifacts = (data.deckLists[id].artifact);
+        const enchantments = (data.deckLists[id].enchantment);
+        const planeswalkers = (data.deckLists[id].planeswalker);
+        const spells = (data.deckLists[id].spells);
+
+        for (let i = 0; i < creatures.length; i++) {
+          $creaturesDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
+          $divTest.setAttribute('class', 'creatures-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = creatures[i].name;
+          $divTest.append($pTest);
+          $creaturesView.append($divTest);
+        }
+        for (let i = 0; i < lands.length; i++) {
+          $landsDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
+          $divTest.setAttribute('class', 'lands-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = lands[i].name;
+          $divTest.append($pTest);
+          $landsView.append($divTest);
+        }
+        for (let i = 0; i < artifacts.length; i++) {
+          $artifactsDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
+          $divTest.setAttribute('class', 'artifacts-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = artifacts[i].name;
+          $divTest.append($pTest);
+          $artifactsView.append($divTest);
+        }
+        for (let i = 0; i < enchantments.length; i++) {
+          $enchantmentsDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
+          $divTest.setAttribute('class', 'enchantments-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = enchantments[i].name;
+          $divTest.append($pTest);
+          $enchantmentsView.append($divTest);
+        }
+        for (let i = 0; i < planeswalkers.length; i++) {
+          $planeswalkersDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
+          $divTest.setAttribute('class', 'planeswalkers-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = planeswalkers[i].name;
+          $divTest.append($pTest);
+          $planeswalkersView.append($divTest);
+        }
+        for (let i = 0; i < spells.length; i++) {
+          $spellsDivView.classList.remove('hidden');
+          const $divTest = document.createElement('div');
+          $divTest.setAttribute('class', 'spells-view');
+          const $pTest = document.createElement('p');
+          $pTest.setAttribute('class', 'p-modal-listing');
+          $pTest.textContent = spells[i].name;
+          $divTest.append($pTest);
+          $spellsView.append($divTest);
+        }
+      }
+      $creaturesView.innerHTML = '';
+      $artifactsView.innerHTML = '';
+      $enchantmentsView.innerHTML = '';
+      $spellsView.innerHTML = '';
+      $planeswalkersView.innerHTML = '';
+      $landsView.innerHTML = '';
+      testingRender();
     });
 
     $listElements.push($li);
