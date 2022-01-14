@@ -41,7 +41,7 @@ const $artifactsView = document.querySelector('.artifacts-card-holder-view');
 const $artifactsDiv = document.querySelector('.artifacts-div');
 const $artifactsDivView = document.querySelector('.artifacts-div-view');
 const $ulList = document.querySelector('.ul-decklist');
-const $testingh1 = document.querySelector('.testingh1');
+const $deckNameHeader = document.querySelector('.deck-name-h1');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -269,11 +269,9 @@ document.getElementById('save-list').addEventListener('click', () => {
   for (const [type, card] of $newDecklist) {
     newList[type] = card;
 
-    // Reset list for specific type
     data.list[type] = [];
   }
 
-  // Add new list to "deckLists" at the next ID
   data.deckLists[data.nextDeckListId] = newList;
   data.nextDeckListId++;
 
@@ -329,7 +327,7 @@ function decklistRender() {
     $button.textContent = 'VIEW';
     $button.addEventListener('click', function (event) {
       $viewdeckbutton.classList.remove('hidden');
-      $testingh1.innerHTML = data.deckLists[id].deckName;
+      $deckNameHeader.innerHTML = data.deckLists[id].deckName;
 
       function testingRender() {
         const creatures = (data.deckLists[id].creature);
@@ -341,63 +339,63 @@ function decklistRender() {
 
         for (let i = 0; i < creatures.length; i++) {
           $creaturesDivView.classList.remove('hidden');
-          const $divTest = document.createElement('div');
-          $divTest.setAttribute('class', 'creatures-view');
-          const $pTest = document.createElement('p');
-          $pTest.setAttribute('class', 'p-modal-listing');
-          $pTest.textContent = creatures[i].name;
-          $divTest.append($pTest);
-          $creaturesView.append($divTest);
+          const $divDeckView = document.createElement('div');
+          $divDeckView.setAttribute('class', 'creatures-view');
+          const $pDeckView = document.createElement('p');
+          $pDeckView.setAttribute('class', 'p-modal-listing');
+          $pDeckView.textContent = creatures[i].name;
+          $divDeckView.append($pDeckView);
+          $creaturesView.append($divDeckView);
         }
         for (let i = 0; i < lands.length; i++) {
           $landsDivView.classList.remove('hidden');
-          const $divTest = document.createElement('div');
-          $divTest.setAttribute('class', 'lands-view');
-          const $pTest = document.createElement('p');
-          $pTest.setAttribute('class', 'p-modal-listing');
-          $pTest.textContent = lands[i].name;
-          $divTest.append($pTest);
-          $landsView.append($divTest);
+          const $divDeckView = document.createElement('div');
+          $divDeckView.setAttribute('class', 'lands-view');
+          const $pDeckView = document.createElement('p');
+          $pDeckView.setAttribute('class', 'p-modal-listing');
+          $pDeckView.textContent = lands[i].name;
+          $divDeckView.append($pDeckView);
+          $landsView.append($divDeckView);
         }
         for (let i = 0; i < artifacts.length; i++) {
           $artifactsDivView.classList.remove('hidden');
-          const $divTest = document.createElement('div');
-          $divTest.setAttribute('class', 'artifacts-view');
-          const $pTest = document.createElement('p');
-          $pTest.setAttribute('class', 'p-modal-listing');
-          $pTest.textContent = artifacts[i].name;
-          $divTest.append($pTest);
-          $artifactsView.append($divTest);
+          const $divDeckView = document.createElement('div');
+          $divDeckView.setAttribute('class', 'artifacts-view');
+          const $pDeckView = document.createElement('p');
+          $pDeckView.setAttribute('class', 'p-modal-listing');
+          $pDeckView.textContent = artifacts[i].name;
+          $divDeckView.append($pDeckView);
+          $artifactsView.append($divDeckView);
         }
         for (let i = 0; i < enchantments.length; i++) {
           $enchantmentsDivView.classList.remove('hidden');
-          const $divTest = document.createElement('div');
-          $divTest.setAttribute('class', 'enchantments-view');
-          const $pTest = document.createElement('p');
-          $pTest.setAttribute('class', 'p-modal-listing');
-          $pTest.textContent = enchantments[i].name;
-          $divTest.append($pTest);
-          $enchantmentsView.append($divTest);
+          const $divDeckView = document.createElement('div');
+          $divDeckView.setAttribute('class', 'enchantments-view');
+          const $pDeckView = document.createElement('p');
+          $pDeckView.setAttribute('class', 'p-modal-listing');
+          $pDeckView.textContent = enchantments[i].name;
+          $divDeckView.append($pDeckView);
+          $enchantmentsView.append($divDeckView);
         }
         for (let i = 0; i < planeswalkers.length; i++) {
           $planeswalkersDivView.classList.remove('hidden');
-          const $divTest = document.createElement('div');
-          $divTest.setAttribute('class', 'planeswalkers-view');
-          const $pTest = document.createElement('p');
-          $pTest.setAttribute('class', 'p-modal-listing');
-          $pTest.textContent = planeswalkers[i].name;
-          $divTest.append($pTest);
-          $planeswalkersView.append($divTest);
+          const $divDeckView = document.createElement('div');
+          $divDeckView.setAttribute('class', 'planeswalkers-view');
+          const $pDeckView = document.createElement('p');
+          $pDeckView.setAttribute('class', 'p-modal-listing');
+          $pDeckView.textContent = planeswalkers[i].name;
+          $divDeckView.append($pDeckView);
+          $planeswalkersView.append($divDeckView);
         }
         for (let i = 0; i < spells.length; i++) {
           $spellsDivView.classList.remove('hidden');
-          const $divTest = document.createElement('div');
-          $divTest.setAttribute('class', 'spells-view');
-          const $pTest = document.createElement('p');
-          $pTest.setAttribute('class', 'p-modal-listing');
-          $pTest.textContent = spells[i].name;
-          $divTest.append($pTest);
-          $spellsView.append($divTest);
+          const $divDeckView = document.createElement('div');
+          $divDeckView.setAttribute('class', 'spells-view');
+          const $pDeckView = document.createElement('p');
+          $pDeckView.setAttribute('class', 'p-modal-listing');
+          $pDeckView.textContent = spells[i].name;
+          $divDeckView.append($pDeckView);
+          $spellsView.append($divDeckView);
         }
       }
       $creaturesView.innerHTML = '';
