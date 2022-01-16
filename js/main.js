@@ -297,6 +297,7 @@ document.getElementById('save-list').addEventListener('click', () => {
 function decklistRender() {
   const deckIds = Object.keys(data.deckLists);
   const $listElements = [];
+
   for (let i = 0; i < deckIds.length; i++) {
     const id = deckIds[i];
     const $li = document.createElement('li');
@@ -412,7 +413,9 @@ function decklistRender() {
     $div.appendChild($buttonTwo);
     $div.appendChild($button);
   }
+  // console.log('testing:', $listElements);
   return $listElements;
+
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {

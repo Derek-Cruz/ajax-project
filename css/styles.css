@@ -210,6 +210,8 @@ input:-webkit-autofill {
 }
 
 .card-display-add {
+  font-family: 'Crimson Text', sans-serif;
+  padding-top: 5px;
   cursor: pointer;
   font-size: 0.6rem;
   background-color: red;
@@ -544,6 +546,10 @@ input:-webkit-autofill {
     padding-left: 0;
   }
 
+  .my-decks-page-style {
+    margin: 0 5px;
+  }
+
   .decklist-render-li {
     font-size: 1.4rem;
     padding: unset;
@@ -561,13 +567,122 @@ input:-webkit-autofill {
   .ul-decklist {
     margin: 0.813rem 0 0 0;
   }
+}
 
-  .testing-button-design {
-    height: 30px;
-    font-size: 0.8rem;
+@media (min-width: 1280px) {
+  .header-h1 {
+    font-size: 3rem;
+    width: 30%;
   }
 
-  .testing-deck-div {
-    width: 106px;
+  .header-div {
+    width: 900px;
+  }
+
+  .header-a-tag {
+    font-size: 1rem;
+    width: 87px;
+  }
+
+  .p-welcome-page {
+    font-size: 4rem;
+    height: 120px;
+  }
+
+  .all-welcome-text {
+    margin-top: 10.313rem;
+  }
+
+  .get-started-button-style {
+    font-size: 1.3rem;
+    height: 4rem;
+    padding: 0 1.7rem;
+  }
+
+  .input-button-style {
+    padding: 0;
+  }
+
+  .browsing-page-search-bar {
+    height: 35px;
+  }
+
+  .searchButton {
+    height: 35px;
+  }
+
+  .deck-button {
+    width: 85px;
+    height: 35px;
+    left: 31%;
+  }
+
+  .card-display-li {
+    width: 25%;
+  }
+
+  .card-display-img {
+    margin: 0 2rem;
+    width: 70%;
+  }
+
+  .card-display-h2 {
+    width: 160px;
+    height: 33px;
+    padding: 0 0 0.313rem 2.063rem;
+    font-size: 0.9rem;
+  }
+
+  .card-display-add {
+    font-size: 0.8rem;
+    height: 22px;
+    width: 50px;
+  }
+
+  .modal-style {
+    width: 700px;
+    height: 500px;
+  }
+
+  .modal-style-views {
+    width: 700px;
+    height: 500px;
+  }
+
+  .modal-h1 {
+    font-size: 3rem;
+  }
+
+  .deck-preview-p {
+    font-size: 0.9rem;
+  }
+
+  .deck-preview-h2 {
+    font-size: 1.5rem;
+  }
+
+  .my-decks-h2 {
+    height: 35px;
+    font-size: 2.1rem;
+    margin: 0.938rem 0 0 0;
+    padding-left: 0;
+  }
+
+  .decklist-render-li {
+    font-size: 1.4rem;
+    padding: unset;
+    margin-bottom: 0.563rem;
+  }
+
+  .selected-card-preview {
+    font-size: 1rem;
+  }
+
+  .selected-card-preview-views {
+    font-size: 1rem;
+  }
+
+  .ul-decklist {
+    margin: 0.813rem 0 0 0;
   }
 }
