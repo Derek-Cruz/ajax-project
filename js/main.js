@@ -294,128 +294,133 @@ document.getElementById('save-list').addEventListener('click', () => {
   $spells.innerHTML = '';
 });
 
+const $testinghiddendiv = document.querySelector('.testing-hidden-div');
+
 function decklistRender() {
   const deckIds = Object.keys(data.deckLists);
   const $listElements = [];
 
-  for (let i = 0; i < deckIds.length; i++) {
-    const id = deckIds[i];
-    const $li = document.createElement('li');
-    const $div = document.createElement('div');
-    const $button = document.createElement('button');
-    const $buttonTwo = document.createElement('button');
+  if ($listElements === []) {
+    $ulList.classList.add('hidden');
+    $testinghiddendiv.classList.remove('hidden');
+  } else {
+    for (let i = 0; i < deckIds.length; i++) {
+      const id = deckIds[i];
+      const $li = document.createElement('li');
+      const $div = document.createElement('div');
+      const $button = document.createElement('button');
+      const $buttonTwo = document.createElement('button');
 
-    $li.setAttribute('class', 'row decklist-render-li');
-    $li.setAttribute('data-deck-id', id);
-    $li.textContent = data.deckLists[id].deckName;
+      $li.setAttribute('class', 'row decklist-render-li');
+      $li.setAttribute('data-deck-id', id);
+      $li.textContent = data.deckLists[id].deckName;
 
-    $div.setAttribute('class', 'decklist-render-div');
-    $div.setAttribute('data-entry-id', id);
+      $div.setAttribute('class', 'decklist-render-div');
+      $div.setAttribute('data-entry-id', id);
 
-    $buttonTwo.setAttribute('class', 'button-style-decklist-render');
-    $buttonTwo.textContent = 'DELETE';
-    $buttonTwo.addEventListener('click', function (event) {
-      if (data.deckLists[id]) {
-        delete data.deckLists[id];
-      }
-      $ulList.innerHTML = '';
-      const $lis = decklistRender();
-      $ulList.append(...$lis);
-    });
-
-    $button.setAttribute('data-entry-id', id);
-    $button.setAttribute('class', 'button-style-decklist-render');
-    $button.textContent = 'VIEW';
-    $button.addEventListener('click', function (event) {
-      $viewdeckbutton.classList.remove('hidden');
-      $deckNameHeader.innerHTML = data.deckLists[id].deckName;
-
-      function testingRender() {
-        const creatures = (data.deckLists[id].creature);
-        const lands = (data.deckLists[id].land);
-        const artifacts = (data.deckLists[id].artifact);
-        const enchantments = (data.deckLists[id].enchantment);
-        const planeswalkers = (data.deckLists[id].planeswalker);
-        const spells = (data.deckLists[id].spells);
-
-        for (let i = 0; i < creatures.length; i++) {
-          $creaturesDivView.classList.remove('hidden');
-          const $divDeckView = document.createElement('div');
-          $divDeckView.setAttribute('class', 'creatures-view');
-          const $pDeckView = document.createElement('p');
-          $pDeckView.setAttribute('class', 'p-modal-listing');
-          $pDeckView.textContent = creatures[i].name;
-          $divDeckView.append($pDeckView);
-          $creaturesView.append($divDeckView);
+      $buttonTwo.setAttribute('class', 'button-style-decklist-render');
+      $buttonTwo.textContent = 'DELETE';
+      $buttonTwo.addEventListener('click', function (event) {
+        if (data.deckLists[id]) {
+          delete data.deckLists[id];
         }
-        for (let i = 0; i < lands.length; i++) {
-          $landsDivView.classList.remove('hidden');
-          const $divDeckView = document.createElement('div');
-          $divDeckView.setAttribute('class', 'lands-view');
-          const $pDeckView = document.createElement('p');
-          $pDeckView.setAttribute('class', 'p-modal-listing');
-          $pDeckView.textContent = lands[i].name;
-          $divDeckView.append($pDeckView);
-          $landsView.append($divDeckView);
-        }
-        for (let i = 0; i < artifacts.length; i++) {
-          $artifactsDivView.classList.remove('hidden');
-          const $divDeckView = document.createElement('div');
-          $divDeckView.setAttribute('class', 'artifacts-view');
-          const $pDeckView = document.createElement('p');
-          $pDeckView.setAttribute('class', 'p-modal-listing');
-          $pDeckView.textContent = artifacts[i].name;
-          $divDeckView.append($pDeckView);
-          $artifactsView.append($divDeckView);
-        }
-        for (let i = 0; i < enchantments.length; i++) {
-          $enchantmentsDivView.classList.remove('hidden');
-          const $divDeckView = document.createElement('div');
-          $divDeckView.setAttribute('class', 'enchantments-view');
-          const $pDeckView = document.createElement('p');
-          $pDeckView.setAttribute('class', 'p-modal-listing');
-          $pDeckView.textContent = enchantments[i].name;
-          $divDeckView.append($pDeckView);
-          $enchantmentsView.append($divDeckView);
-        }
-        for (let i = 0; i < planeswalkers.length; i++) {
-          $planeswalkersDivView.classList.remove('hidden');
-          const $divDeckView = document.createElement('div');
-          $divDeckView.setAttribute('class', 'planeswalkers-view');
-          const $pDeckView = document.createElement('p');
-          $pDeckView.setAttribute('class', 'p-modal-listing');
-          $pDeckView.textContent = planeswalkers[i].name;
-          $divDeckView.append($pDeckView);
-          $planeswalkersView.append($divDeckView);
-        }
-        for (let i = 0; i < spells.length; i++) {
-          $spellsDivView.classList.remove('hidden');
-          const $divDeckView = document.createElement('div');
-          $divDeckView.setAttribute('class', 'spells-view');
-          const $pDeckView = document.createElement('p');
-          $pDeckView.setAttribute('class', 'p-modal-listing');
-          $pDeckView.textContent = spells[i].name;
-          $divDeckView.append($pDeckView);
-          $spellsView.append($divDeckView);
-        }
-      }
-      $creaturesView.innerHTML = '';
-      $artifactsView.innerHTML = '';
-      $enchantmentsView.innerHTML = '';
-      $spellsView.innerHTML = '';
-      $planeswalkersView.innerHTML = '';
-      $landsView.innerHTML = '';
-      testingRender();
-    });
+        $ulList.innerHTML = '';
+        const $lis = decklistRender();
+        $ulList.append(...$lis);
+      });
 
-    $listElements.push($li);
-    $li.appendChild($div);
-    $div.appendChild($buttonTwo);
-    $div.appendChild($button);
+      $button.setAttribute('data-entry-id', id);
+      $button.setAttribute('class', 'button-style-decklist-render');
+      $button.textContent = 'VIEW';
+      $button.addEventListener('click', function (event) {
+        $viewdeckbutton.classList.remove('hidden');
+        $deckNameHeader.innerHTML = data.deckLists[id].deckName;
+
+        function testingRender() {
+          const creatures = (data.deckLists[id].creature);
+          const lands = (data.deckLists[id].land);
+          const artifacts = (data.deckLists[id].artifact);
+          const enchantments = (data.deckLists[id].enchantment);
+          const planeswalkers = (data.deckLists[id].planeswalker);
+          const spells = (data.deckLists[id].spells);
+
+          for (let i = 0; i < creatures.length; i++) {
+            $creaturesDivView.classList.remove('hidden');
+            const $divDeckView = document.createElement('div');
+            $divDeckView.setAttribute('class', 'creatures-view');
+            const $pDeckView = document.createElement('p');
+            $pDeckView.setAttribute('class', 'p-modal-listing');
+            $pDeckView.textContent = creatures[i].name;
+            $divDeckView.append($pDeckView);
+            $creaturesView.append($divDeckView);
+          }
+          for (let i = 0; i < lands.length; i++) {
+            $landsDivView.classList.remove('hidden');
+            const $divDeckView = document.createElement('div');
+            $divDeckView.setAttribute('class', 'lands-view');
+            const $pDeckView = document.createElement('p');
+            $pDeckView.setAttribute('class', 'p-modal-listing');
+            $pDeckView.textContent = lands[i].name;
+            $divDeckView.append($pDeckView);
+            $landsView.append($divDeckView);
+          }
+          for (let i = 0; i < artifacts.length; i++) {
+            $artifactsDivView.classList.remove('hidden');
+            const $divDeckView = document.createElement('div');
+            $divDeckView.setAttribute('class', 'artifacts-view');
+            const $pDeckView = document.createElement('p');
+            $pDeckView.setAttribute('class', 'p-modal-listing');
+            $pDeckView.textContent = artifacts[i].name;
+            $divDeckView.append($pDeckView);
+            $artifactsView.append($divDeckView);
+          }
+          for (let i = 0; i < enchantments.length; i++) {
+            $enchantmentsDivView.classList.remove('hidden');
+            const $divDeckView = document.createElement('div');
+            $divDeckView.setAttribute('class', 'enchantments-view');
+            const $pDeckView = document.createElement('p');
+            $pDeckView.setAttribute('class', 'p-modal-listing');
+            $pDeckView.textContent = enchantments[i].name;
+            $divDeckView.append($pDeckView);
+            $enchantmentsView.append($divDeckView);
+          }
+          for (let i = 0; i < planeswalkers.length; i++) {
+            $planeswalkersDivView.classList.remove('hidden');
+            const $divDeckView = document.createElement('div');
+            $divDeckView.setAttribute('class', 'planeswalkers-view');
+            const $pDeckView = document.createElement('p');
+            $pDeckView.setAttribute('class', 'p-modal-listing');
+            $pDeckView.textContent = planeswalkers[i].name;
+            $divDeckView.append($pDeckView);
+            $planeswalkersView.append($divDeckView);
+          }
+          for (let i = 0; i < spells.length; i++) {
+            $spellsDivView.classList.remove('hidden');
+            const $divDeckView = document.createElement('div');
+            $divDeckView.setAttribute('class', 'spells-view');
+            const $pDeckView = document.createElement('p');
+            $pDeckView.setAttribute('class', 'p-modal-listing');
+            $pDeckView.textContent = spells[i].name;
+            $divDeckView.append($pDeckView);
+            $spellsView.append($divDeckView);
+          }
+        }
+        $creaturesView.innerHTML = '';
+        $artifactsView.innerHTML = '';
+        $enchantmentsView.innerHTML = '';
+        $spellsView.innerHTML = '';
+        $planeswalkersView.innerHTML = '';
+        $landsView.innerHTML = '';
+        testingRender();
+      });
+
+      $listElements.push($li);
+      $li.appendChild($div);
+      $div.appendChild($buttonTwo);
+      $div.appendChild($button);
+    }
   }
-  // console.log('testing:', $listElements);
   return $listElements;
-
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
