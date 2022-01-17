@@ -300,7 +300,7 @@ function decklistRender() {
   const deckIds = Object.keys(data.deckLists);
   const $listElements = [];
 
-  if ($listElements === []) {
+  if (deckIds.length === 0) {
     $ulList.classList.add('hidden');
     $testinghiddendiv.classList.remove('hidden');
   } else {

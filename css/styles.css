@@ -16,6 +16,10 @@ input:-webkit-autofill {
   background-color: black;
 }
 
+.testing-hidden-div {
+  color: white;
+}
+
 /* - Header - */
 
 .header-background {
