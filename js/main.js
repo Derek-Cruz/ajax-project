@@ -43,7 +43,7 @@ const $artifactsDivView = document.querySelector('.artifacts-div-view');
 const $ulList = document.querySelector('.ul-decklist');
 const $ulCardList = document.querySelector('#card-list');
 const $deckNameHeader = document.querySelector('.deck-name-h1');
-const $testinghiddendiv = document.querySelector('.testing-hidden-div');
+const $noResults = document.querySelector('.no-results-div');
 const $testinghiddenSearch = document.querySelector('.testing-search-div');
 
 function getData() {
@@ -55,12 +55,13 @@ function getData() {
     for (var i = 0; i < xhr.response.cards.length; i++) {
       var $cards = renderCards(xhr.response.cards[i]);
 
-      if (!$cards) {
+      if ($cardList.length === 0) {
         $ulCardList.classList.add('hidden');
         $testinghiddenSearch.classList.remove('hidden');
       } else {
         $cardList.appendChild($cards);
       }
+      // console.log('test:', $cardList.length);
     }
   });
   xhr.send();
@@ -309,7 +310,7 @@ function decklistRender() {
 
   if (deckIds.length === 0) {
     $ulList.classList.add('hidden');
-    $testinghiddendiv.classList.remove('hidden');
+    $noResults.classList.remove('hidden');
   } else {
     for (let i = 0; i < deckIds.length; i++) {
       const id = deckIds[i];
