@@ -44,7 +44,7 @@ const $ulList = document.querySelector('.ul-decklist');
 const $ulCardList = document.querySelector('#card-list');
 const $deckNameHeader = document.querySelector('.deck-name-h1');
 const $noResults = document.querySelector('.no-results-div');
-const $testinghiddenSearch = document.querySelector('.testing-search-div');
+const $noResultsSearch = document.querySelector('.no-results-search-div');
 
 function getData() {
   const xhr = new XMLHttpRequest();
@@ -52,16 +52,14 @@ function getData() {
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    for (var i = 0; i < xhr.response.cards.length; i++) {
-      var $cards = renderCards(xhr.response.cards[i]);
-
-      if ($cardList.length === 0) {
-        $ulCardList.classList.add('hidden');
-        $testinghiddenSearch.classList.remove('hidden');
-      } else {
+    if (xhr.response.cards.length === 0) {
+      $ulCardList.classList.add('hidden');
+      $noResultsSearch.classList.remove('hidden');
+    } else {
+      for (var i = 0; i < xhr.response.cards.length; i++) {
+        var $cards = renderCards(xhr.response.cards[i]);
         $cardList.appendChild($cards);
       }
-      // console.log('test:', $cardList.length);
     }
   });
   xhr.send();
@@ -258,9 +256,14 @@ function search(event) {
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    for (var i = 0; i < xhr.response.cards.length; i++) {
-      var $cards = renderCards(xhr.response.cards[i]);
-      $cardList.appendChild($cards);
+    if (xhr.response.cards.length === 0) {
+      $ulCardList.classList.add('hidden');
+      $noResultsSearch.classList.remove('hidden');
+    } else {
+      for (var i = 0; i < xhr.response.cards.length; i++) {
+        var $cards = renderCards(xhr.response.cards[i]);
+        $cardList.appendChild($cards);
+      }
     }
   });
   xhr.send();

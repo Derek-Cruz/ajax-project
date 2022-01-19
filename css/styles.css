@@ -16,14 +16,6 @@ input:-webkit-autofill {
   background-color: black;
 }
 
-.no-results-div {
-  color: white;
-}
-
-.testing-search-div {
-  color: white;
-}
-
 /* - Header - */
 
 .header-background {
@@ -115,6 +107,13 @@ input:-webkit-autofill {
 }
 
 /* - Browsing Page - */
+
+.no-results-search-div {
+  padding-left: 0.188rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 
 .input-button-style {
   width: 100%;
@@ -380,6 +379,17 @@ input:-webkit-autofill {
 
 /* - My Decks Page - */
 
+.no-results-div {
+  padding-left: 0.188rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.no-results-p {
+  margin: 10px 0 0 0;
+}
+
 .my-decks-page-style {
   flex-direction: column;
 }
@@ -575,6 +585,14 @@ input:-webkit-autofill {
   .ul-decklist {
     margin: 0.813rem 0 0 0;
   }
+
+  .no-results-div {
+    padding: 0;
+  }
+
+  .no-results-search-div {
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -692,5 +710,13 @@ input:-webkit-autofill {
 
   .ul-decklist {
     margin: 0.813rem 0 0 0;
+  }
+
+  .no-results-div {
+    padding: 0;
+  }
+
+  .no-results-search-div {
+    font-size: 1.5rem;
   }
 }
