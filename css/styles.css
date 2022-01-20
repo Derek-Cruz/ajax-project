@@ -3,7 +3,7 @@ li {
 }
 
 i {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #fff;
 }
 
@@ -88,7 +88,6 @@ input:-webkit-autofill {
     transform: translate(24px, 0);
   }
 }
-
 
 /* - Header - */
 
@@ -183,7 +182,8 @@ input:-webkit-autofill {
 /* - Browsing Page - */
 
 .no-results-search-div {
-  padding-left: 0.188rem;
+  font-family: 'Crimson Text', sans-serif;
+  padding-left: 0.375rem;
   color: white;
   font-size: 0.9rem;
   font-weight: 600;
@@ -219,7 +219,7 @@ input:-webkit-autofill {
   color: #fff;
   border-radius: 0 8px 8px 0;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .searchButton i {
@@ -292,7 +292,7 @@ input:-webkit-autofill {
 
 .card-display-add {
   font-family: 'Crimson Text', sans-serif;
-  padding-top: 5px;
+  padding-top: 0.313rem;
   cursor: pointer;
   font-size: 0.6rem;
   background-color: red;
@@ -461,6 +461,7 @@ input:-webkit-autofill {
 }
 
 .no-results-p {
+  font-family: 'Crimson Text', sans-serif;
   margin: 10px 0 0 0;
 }
 
@@ -639,7 +640,7 @@ input:-webkit-autofill {
   }
 
   .my-decks-page-style {
-    margin: 0 5px;
+    margin: 0 0.313rem;
   }
 
   .decklist-render-li {

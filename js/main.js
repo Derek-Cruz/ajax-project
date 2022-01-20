@@ -64,12 +64,16 @@ function getData() {
   xhr.addEventListener('load', function () {
     hide(document.querySelector('.lds-ellipsis'));
     $ulCardList.classList.add('hidden');
+    $arrowLeft.classList.add('hidden');
+    $arrowRight.classList.add('hidden');
 
     if (xhr.response.cards.length === 0) {
       $ulCardList.classList.add('hidden');
       $noResultsSearch.classList.remove('hidden');
     } else {
       $ulCardList.classList.remove('hidden');
+      $arrowLeft.classList.remove('hidden');
+      $arrowRight.classList.remove('hidden');
       for (var i = 0; i < xhr.response.cards.length; i++) {
         var $cards = renderCards(xhr.response.cards[i]);
         $cardList.appendChild($cards);
@@ -132,8 +136,6 @@ $aTagMakeDeck.addEventListener('click', function () {
   $welcomePage.classList.add('hidden');
   $browsingPage.classList.remove('hidden');
 });
-
-// ------------------------------------------------------RENDER CARDS------------------------------------------------------
 
 function renderCards(card) {
   const $li = document.createElement('li');
