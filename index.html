@@ -60,9 +60,20 @@
         </div>
         <div class="row">
           <div class="column-full">
+            <div class="spinner-placement">
+              <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
             <ul id="card-list" class="card-display-ul">
 
             </ul>
+            <div class="no-results-search-div hidden">
+              <p>We're sorry. We were not able to find a match.</p>
+            </div>
           </div>
         </div>
         <div class="row arrow-left-right">
@@ -76,6 +87,9 @@
             <h2 class="my-decks-h2">My Decks</h2>
           </div>
           <ul class="ul-decklist"></ul>
+          <div class="no-results-div hidden">
+            <p class="no-results-p">You have no saved deck list</p>
+          </div>
         </div>
       </div>
       <div>
@@ -133,7 +147,7 @@
         </div>
         <div class="modal-container-two view hidden">
           <div class="modal-style-views">
-            <h1 class="modal-h1 testingh1"></h1>
+            <h1 class="modal-h1 deck-name-h1"></h1>
             <div class="selected-card-preview-views">
               <div class="column-half">
                 <div class="creatures-div-view hidden">
