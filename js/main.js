@@ -46,16 +46,30 @@ const $deckNameHeader = document.querySelector('.deck-name-h1');
 const $noResults = document.querySelector('.no-results-div');
 const $noResultsSearch = document.querySelector('.no-results-search-div');
 
+const show = loader => {
+  loader.classList.remove('hidden');
+};
+
+const hide = loader => {
+  loader.classList.add('hidden');
+};
+
+show(document.querySelector('.lds-ellipsis'));
+
 function getData() {
   const xhr = new XMLHttpRequest();
   const url = 'https://api.magicthegathering.io/v1/cards?page=' + data.page;
   xhr.open('GET', url);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    hide(document.querySelector('.lds-ellipsis'));
+    $ulCardList.classList.add('hidden');
+
     if (xhr.response.cards.length === 0) {
       $ulCardList.classList.add('hidden');
       $noResultsSearch.classList.remove('hidden');
     } else {
+      $ulCardList.classList.remove('hidden');
       for (var i = 0; i < xhr.response.cards.length; i++) {
         var $cards = renderCards(xhr.response.cards[i]);
         $cardList.appendChild($cards);
