@@ -22,6 +22,8 @@ input:-webkit-autofill {
   justify-content: center;
 }
 
+/* - Spinner - */
+
 .lds-ellipsis {
   display: inline-block;
   position: relative;
