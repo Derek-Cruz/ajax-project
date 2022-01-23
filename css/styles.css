@@ -488,6 +488,7 @@ input:-webkit-autofill {
 }
 
 .decklist-render-li {
+  font-family: 'Crimson Text', sans-serif;
   font-size: 1.3rem;
   display: flex;
   flex-direction: row;
