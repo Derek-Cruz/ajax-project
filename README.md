@@ -4,7 +4,7 @@ A dynamic HTML, CSS and JavaScript web application for Magic The Gathering playe
 
 ## Live Demo
 
-Try the application live at https://derek-cruz.github.io/ajax-project/
+Try the application live at https://derek-cruz.github.io/akina-mtg/
 
 ## Technologies Used
 - HTML5
