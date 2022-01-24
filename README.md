@@ -25,7 +25,7 @@ Try the application live at https://derek-cruz.github.io/ajax-project/
 
 ## Preview
 
-need to add
+![EXP](https://user-images.githubusercontent.com/78568982/150855358-aa7595d4-2a02-4964-9769-9edd5557845d.gif)
 
 ## Stretch Features
 
@@ -33,4 +33,13 @@ need to add
 - User can remove cards while making a deck list. 
 - User can hover over card name and see preview of card.
 
-### Getting Started
+## Getting Started
+
+1. Clone the repository.
+```
+git clone git@github.com:Derek-Cruz/ajax-project.git
+cd ajax-project
+```
+2. Open the index.html located in the root folder and view the application by opening in a default browser.
+
+
