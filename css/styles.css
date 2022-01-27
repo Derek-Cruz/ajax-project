@@ -230,12 +230,13 @@ input:-webkit-autofill {
 }
 
 .deck-button {
+  font-family: 'Crimson Text', sans-serif;
   cursor: pointer;
   font-size: 1.1rem;
   background-color: red;
   color: black;
   border: none;
-  border-radius: 8px;
+  border-radius: 14px;
   height: 30px;
   width: 57px;
   position: relative;
@@ -301,8 +302,8 @@ input:-webkit-autofill {
   color: black;
   border: none;
   border-radius: 8px;
-  height: 16px;
-  width: 35px;
+  height: 17px;
+  width: 36px;
 }
 
 .card-display-button-div {
@@ -587,6 +588,7 @@ input:-webkit-autofill {
   }
 
   .deck-button {
+    font-size: 1.3rem;
     width: 85px;
     height: 35px;
     left: 31%;
@@ -717,6 +719,7 @@ input:-webkit-autofill {
   }
 
   .deck-button {
+    font-size: 1.3rem;
     width: 85px;
     height: 35px;
     left: 31%;
