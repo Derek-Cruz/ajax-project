@@ -588,6 +588,7 @@ input:-webkit-autofill {
   }
 
   .deck-button {
+    padding-top: 0.25px;
     font-size: 1.3rem;
     width: 85px;
     height: 35px;
@@ -719,6 +720,7 @@ input:-webkit-autofill {
   }
 
   .deck-button {
+    padding-top: 0.25px;
     font-size: 1.3rem;
     width: 85px;
     height: 35px;
