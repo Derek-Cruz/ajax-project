@@ -276,6 +276,7 @@ function search(event) {
       $ulCardList.classList.add('hidden');
       $noResultsSearch.classList.remove('hidden');
     } else {
+      $ulCardList.classList.remove('hidden');
       for (var i = 0; i < xhr.response.cards.length; i++) {
         var $cards = renderCards(xhr.response.cards[i]);
         $cardList.appendChild($cards);
